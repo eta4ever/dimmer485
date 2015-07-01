@@ -1,0 +1,1066 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"re",
+				"resetPin"
+			],
+			[
+				"reg",
+				"registerDump"
+			],
+			[
+				"ou",
+				"outputTime"
+			],
+			[
+				"iter",
+				"iterDelay"
+			],
+			[
+				"p",
+				"pushBits"
+			],
+			[
+				"out",
+				"output"
+			],
+			[
+				"o",
+				"output"
+			],
+			[
+				"fra",
+				"frameCount"
+			],
+			[
+				"seri",
+				"serialConn"
+			],
+			[
+				"w",
+				"writePos"
+			],
+			[
+				"read",
+				"readPos"
+			],
+			[
+				"para",
+				"paramValue"
+			],
+			[
+				"pass",
+				"password"
+			],
+			[
+				"nix",
+				"nixieConfig"
+			],
+			[
+				"pa",
+				"paramValue"
+			],
+			[
+				"ti",
+				"timeserver"
+			],
+			[
+				"par",
+				"paramValue"
+			],
+			[
+				"se",
+				"secondDotPos"
+			],
+			[
+				"fi",
+				"firstDotPos"
+			],
+			[
+				"t",
+				"timezone"
+			],
+			[
+				"sw",
+				"switch	Arduino switch"
+			],
+			[
+				"file",
+				"fileString"
+			],
+			[
+				"de",
+				"delimiterPos"
+			],
+			[
+				"so",
+				"source"
+			],
+			[
+				"conf",
+				"configPath"
+			],
+			[
+				"con",
+				"config"
+			],
+			[
+				"fa",
+				"fakeTime"
+			],
+			[
+				"n",
+				"nByteLow"
+			],
+			[
+				"nb",
+				"nByteLow"
+			],
+			[
+				"digit",
+				"digitalWrite	Arduino digitalWrite"
+			],
+			[
+				"b",
+				"bitCounter"
+			],
+			[
+				"bit",
+				"bitRead"
+			],
+			[
+				"digi",
+				"digitalWrite	Arduino digitalWrite"
+			],
+			[
+				"pn",
+				"pinMode	Arduino pinMode"
+			],
+			[
+				"NTP",
+				"NTPsync"
+			],
+			[
+				"pin",
+				"pinMode	Arduino pinMode"
+			],
+			[
+				"ef",
+				"effect_displayed"
+			],
+			[
+				"rand",
+				"randrange"
+			],
+			[
+				"rando",
+				"random_number"
+			],
+			[
+				"nixie_d",
+				"nixie_digit_gpios"
+			],
+			[
+				"nixi",
+				"nixie_digit_gpios"
+			],
+			[
+				"led",
+				"ledFlash"
+			],
+			[
+				"ntp",
+				"ntpServer"
+			],
+			[
+				"IP",
+				"IPAddress"
+			],
+			[
+				"udp",
+				"udpTimeout"
+			],
+			[
+				"res",
+				"responceTimeout"
+			],
+			[
+				"nt",
+				"ntpPollDelay"
+			],
+			[
+				"po",
+				"pollDelay"
+			],
+			[
+				"un",
+				"unsigned"
+			],
+			[
+				"u",
+				"unixtime"
+			],
+			[
+				"rece",
+				"receiveCounter"
+			],
+			[
+				"send",
+				"sendCounter"
+			],
+			[
+				"unix",
+				"unixtime"
+			],
+			[
+				"ser",
+				"serialPrintTime"
+			],
+			[
+				"pack",
+				"packetReceived"
+			],
+			[
+				"ud",
+				"udpDelay"
+			],
+			[
+				"pac",
+				"packetReceived"
+			],
+			[
+				"err",
+				"errDHCP"
+			],
+			[
+				"gre",
+				"greenLed"
+			],
+			[
+				"red",
+				"redLed"
+			],
+			[
+				"get",
+				"getHostByName"
+			],
+			[
+				"co",
+				"color"
+			],
+			[
+				"font",
+				"font-size"
+			],
+			[
+				"mar",
+				"margin-bottom"
+			],
+			[
+				"margi",
+				"margin-top"
+			],
+			[
+				"reci",
+				"received_content"
+			],
+			[
+				"qu",
+				"query_text"
+			],
+			[
+				"mysql_fe",
+				"mysql_fetch_row"
+			],
+			[
+				"analo",
+				"analogWrite	Arduino analogWrite"
+			],
+			[
+				"border",
+				"border_elements_dist"
+			],
+			[
+				"fast_",
+				"fast_targeted_order"
+			],
+			[
+				"NO",
+				"NODES_COUNT"
+			],
+			[
+				"comp",
+				"component"
+			],
+			[
+				"upa",
+				"upa_graph"
+			],
+			[
+				"upa_",
+				"upa_test_graph"
+			],
+			[
+				"neig",
+				"neighbor"
+			],
+			[
+				"fas",
+				"fast_times"
+			],
+			[
+				"node_",
+				"node_counts"
+			],
+			[
+				"slo",
+				"slow_times"
+			],
+			[
+				"targeted",
+				"targeted_order"
+			],
+			[
+				"sta",
+				"start_time"
+			],
+			[
+				"ta",
+				"targeted_order"
+			],
+			[
+				"ne",
+				"neighbors"
+			],
+			[
+				"atta",
+				"attack_node"
+			],
+			[
+				"neigh",
+				"neighbor"
+			],
+			[
+				"g",
+				"graph"
+			],
+			[
+				"attack",
+				"attack_seq"
+			],
+			[
+				"node",
+				"node_degree_dict"
+			],
+			[
+				"degree",
+				"degree_sets"
+			],
+			[
+				"deg",
+				"degree_sets"
+			],
+			[
+				"v",
+				"values"
+			],
+			[
+				"grap",
+				"GRAPH9"
+			],
+			[
+				"val",
+				"values_set"
+			],
+			[
+				"compute",
+				"compute_degrees"
+			],
+			[
+				"pro",
+				"provided_network"
+			],
+			[
+				"edge",
+				"edge_count"
+			],
+			[
+				"pr",
+				"provided_network_res"
+			],
+			[
+				"prov",
+				"provided_network_res"
+			],
+			[
+				"horiz",
+				"horiz_ticks"
+			],
+			[
+				"at",
+				"attack_order"
+			],
+			[
+				"N",
+				"NODES_COUNT"
+			],
+			[
+				"UPA",
+				"UPA_M"
+			],
+			[
+				"ER",
+				"ER_PROB"
+			],
+			[
+				"nodes",
+				"nodes"
+			],
+			[
+				"er_",
+				"er_network"
+			],
+			[
+				"load",
+				"load_graph"
+			],
+			[
+				"fro",
+				"frozenset"
+			],
+			[
+				"com",
+				"compute_resilence"
+			],
+			[
+				"la",
+				"largest_cc_size"
+			],
+			[
+				"lar",
+				"largest_size"
+			],
+			[
+				"compo",
+				"component"
+			],
+			[
+				"att",
+				"attack_node"
+			],
+			[
+				"attac",
+				"attack_node"
+			],
+			[
+				"conn",
+				"conn_components"
+			],
+			[
+				"bfs",
+				"bfs_visited"
+			],
+			[
+				"nei",
+				"neighbor"
+			],
+			[
+				"dis",
+				"distribution_vals"
+			],
+			[
+				"d",
+				"distribution"
+			],
+			[
+				"in",
+				"in_degrees"
+			],
+			[
+				"degre",
+				"degrees_list_dictvals"
+			],
+			[
+				"di",
+				"digraph"
+			],
+			[
+				"cita",
+				"citation_graph"
+			],
+			[
+				"ot",
+				"out_degrees_sum"
+			],
+			[
+				"nodes_",
+				"nodes_to_connect"
+			],
+			[
+				"nodes_to_co",
+				"nodes_to_connect_count"
+			],
+			[
+				"sum",
+				"sum_indegree"
+			],
+			[
+				"padd",
+				"padding-top"
+			],
+			[
+				"back",
+				"background-color"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "main.c",
+			"settings":
+			{
+				"buffer_size": 2609,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "SublimeAVR",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"SublimeAVR",
+					""
+				],
+				[
+					"SublimeAVR",
+					"Rebuild"
+				],
+				[
+					"SublimeAVR",
+					"Clean"
+				],
+				[
+					"SublimeAVR",
+					"Debug"
+				]
+			],
+			[
+				"SublimeAVR",
+				""
+			]
+		],
+		[
+			[
+				[
+					"SublimeAVR",
+					""
+				],
+				[
+					"SublimeAVR",
+					"Rebuild"
+				],
+				[
+					"SublimeAVR",
+					"Clean"
+				],
+				[
+					"SublimeAVR",
+					"Debug"
+				],
+				[
+					"Packages/C++/C++ Single File.sublime-build",
+					""
+				],
+				[
+					"Packages/C++/C++ Single File.sublime-build",
+					"Run"
+				],
+				[
+					"Packages/Makefile/Make.sublime-build",
+					""
+				],
+				[
+					"Packages/Makefile/Make.sublime-build",
+					"Clean"
+				]
+			],
+			[
+				"SublimeAVR",
+				"Rebuild"
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 400.0,
+		"last_filter": "avr",
+		"selected_items":
+		[
+			[
+				"avr",
+				"AVR: Create/Update Project"
+			],
+			[
+				"packa",
+				"Package Control: Install Package"
+			],
+			[
+				"",
+				"AVR: Create/Update Project"
+			],
+			[
+				"pac",
+				"Package Control: Install Package"
+			],
+			[
+				"in",
+				"Package Control: Install Package"
+			],
+			[
+				"av",
+				"AVR: Create/Update Project"
+			],
+			[
+				"Package Control: re",
+				"Package Control: Remove Package"
+			],
+			[
+				"pack",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 408.0
+	},
+	"console":
+	{
+		"height": 174.0,
+		"history":
+		[
+			"import urllib.request,os,sys; exec(\"if sys.version_info < (3,) or os.name != 'nt': raise OSError('This code is for Windows ST3 only!')\"); pr='Preferences.sublime-settings'; ip='ignored_packages'; n='Package Control'; s=sublime.load_settings(pr); ig=s.get(ip); ig.append(n); s.set(ip,ig); sublime.save_settings('Preferences.sublime-settings'); pf=n+'.sublime-package'; urllib.request.install_opener(urllib.request.build_opener(urllib.request.ProxyHandler())); by=urllib.request.urlopen('https://packagecontrol.io/'+pf.replace(' ','%20')).read(); open(os.path.join(sublime.installed_packages_path(),pf),'wb').write(by); ig.remove(n); s.set(ip,ig); sublime.save_settings(pr); print('Package Control: 3.0.0 upgrade successful!')",
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)",
+			" import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by) "
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/E/git/dimmer485/sublime-avr proj"
+	],
+	"file_history":
+	[
+		"/E/avr/proj/flash_m328.bat",
+		"/E/git/ay-serial/atmega/main.c",
+		"/E/git/dimmer485/sublime-avr proj/main.c",
+		"/E/tmp/main.c",
+		"/E/Downloads/nekton-bio.txt",
+		"/C/Users/user/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/E/tmp/streamer.py",
+		"/E/java/JavaRushHomeWork/src/DO NOT READ.txt",
+		"/E/esp8266/ESPlorer/init.lua",
+		"/E/Downloads/eset.txt",
+		"/E/work/postcards/req",
+		"/E/Dropbox/habr/stm32f030f4/txt.txt",
+		"/E/avr/proj/test/main.c",
+		"/E/Downloads/go_3.php",
+		"/E/avr/proj/fuse_t13.bat",
+		"/E/avr/proj/flash_t13.bat",
+		"/E/avr/proj/flash.bat",
+		"/E/avr/proj/fuse.bat",
+		"/Z/Video - anime/Kuro Shitsuji (TV)/001.ass",
+		"/Z/Video - anime/Kuro Shitsuji (TV)/001.srt",
+		"/Z/Video - anime/Kuro Shitsuji (TV)/ass/001.ass",
+		"/Z/Video - anime/Kuro Shitsuji (TV)/ass/006.ass",
+		"/Z/Video - anime/Kuro Shitsuji (TV)/ass/007.ass",
+		"/Z/Video - anime/Kuro Shitsuji (TV)/ass/008.ass",
+		"/Z/Video - anime/Kuro Shitsuji (TV)/ass/009.ass",
+		"/Z/Video - anime/Kuro Shitsuji (TV)/ass/010.ass",
+		"/Z/Video - anime/Kuro Shitsuji (TV)/ass/011.ass",
+		"/Z/Video - anime/Kuro Shitsuji (TV)/ass/012.ass",
+		"/Z/Video - anime/Kuro Shitsuji (TV)/ass/013.ass",
+		"/Z/Video - anime/Kuro Shitsuji (TV)/ass/014.ass",
+		"/Z/Video - anime/Kuro Shitsuji (TV)/ass/015.ass",
+		"/Z/Video - anime/Kuro Shitsuji (TV)/ass/016.ass",
+		"/Z/Video - anime/Kuro Shitsuji (TV)/ass/017.ass",
+		"/Z/Video - anime/Kuro Shitsuji (TV)/ass/018.ass",
+		"/Z/Video - anime/Kuro Shitsuji (TV)/ass/019.ass",
+		"/Z/Video - anime/Kuro Shitsuji (TV)/ass/020.ass",
+		"/Z/Video - anime/Kuro Shitsuji (TV)/ass/021.ass",
+		"/Z/Video - anime/Kuro Shitsuji (TV)/ass/022.ass",
+		"/Z/Video - anime/Kuro Shitsuji (TV)/ass/023.ass",
+		"/Z/Video - anime/Kuro Shitsuji (TV)/ass/024.ass",
+		"/Z/Video - anime/Kuro Shitsuji (TV)/ass/004.ass",
+		"/Z/Video - anime/Kuro Shitsuji (TV)/ass/005.ass",
+		"/Z/Video - anime/Kuro Shitsuji (TV)/ass/003.ass",
+		"/Z/Video - anime/Kuro Shitsuji (TV)/ass/002.ass",
+		"/Z/Video - anime/Kuro Shitsuji (TV)/002.srt",
+		"/E/doc/Николай Кимович авито.",
+		"/E/stm32/oled/russian.txt",
+		"/E/Steam/steamapps/common/Kerbal Space Program/Plugins/MechJeb2/LICENSE.md",
+		"/E/Downloads/torr/SW2015_SP2.1_Full_SSQ/SolidSQUAD.nfo",
+		"/E/Downloads/torr/SW2015_SP2.1_Full_SSQ/_SolidSQUAD_/readme.txt",
+		"/E/Downloads/st.txt",
+		"/E/tmp/b12",
+		"/E/git/piklok/py/klok.py",
+		"/E/Dropbox/habr/nixie/индикация.txt",
+		"/E/systemp/_tc/Clock_IN-8/main.c",
+		"/E/tmp/Иришке контрольная/ываывп",
+		"/E/stm32/cube-proj/test.ioc",
+		"/E/stm/cube-test/test/EWARM/test.ewd",
+		"/C/$UPG$PBR.MARKER",
+		"/Y/py/settings",
+		"/Y/py/ayPlayer.py",
+		"/Y/py/klok.py",
+		"/E/tmp/Иришке контрольная/1",
+		"/Y/py/alarm.py",
+		"//malinko/home/py/klok.py",
+		"/E/git/piklok/README.md",
+		"//malinko/home/py/streamer.py",
+		"/E/avr/toolchain/avr/include/avr/iom8a.h",
+		"/E/avr/toolchain/avr/include/avr/io.h",
+		"/E/avr/toolchain/avr/include/avr/interrupt.h",
+		"/E/git/ay-serial/atmega/fuse.bat",
+		"/E/avr/proj/test/settings.h",
+		"/E/mtklok/ay-mega/ay test/py/streamer.py",
+		"/E/mtklok/ay-mega/ay test/csharp/1.ym",
+		"/E/git/mtklok/ay/main.c",
+		"/E/mtklok/ay-mega/ay test/csharp/October.ay",
+		"/E/mtklok/ay-mega/ay test/csharp/ym2149_steamer.cs",
+		"/E/git/mtklok/ay/fuse.bat",
+		"/E/git/mtklok/ay/mega preparation.txt",
+		"/E/avr/proj/test/a.hex",
+		"/E/avr/proj/test/flash.bat",
+		"/E/avr/proj/test/Makefile",
+		"/E/mtklok/ay-mega/ay test/test-avr/test.c",
+		"/C/Program Files (x86)/Arduino/hardware/arduino/avr/boards.txt",
+		"/E/mtklok/ay-mega/ay test/csharp/tt.ym",
+		"/E/mtklok/ay-mega/ay test/csharp/tabletennis.ymst",
+		"/E/mtklok/ay-mega/ay test/test/test.ino",
+		"/E/util/fosc/Focus.cfg",
+		"/E/mtklok/ay-mega/ay test/csharp/xenon2.ym",
+		"/E/mtklok/ay-mega/ay test/csharp/sleepUnp.YM",
+		"/E/mtklok/ay-mega/ay test/csharp/crickey.ym",
+		"/E/mtklok/ay-mega/ay test/csharp/Level.ay",
+		"/E/mtklok/ay-mega/2platform.txt",
+		"/E/mtklok/ay-mega/дудка",
+		"/E/mtklok/ay-mega/2boards.txt",
+		"/C/Program Files (x86)/Arduino/hardware/arduino/avr/platform.txt",
+		"/E/mtklok/ay-mega/2platforms.txt",
+		"/E/git/mtklok/main.ino",
+		"/E/tmp/лампа Геллочки.txt",
+		"/E/mtklok/main.ino",
+		"/E/git/mtklok/README.md",
+		"/I/config/main.txt",
+		"/E/git/arduino_timer/timer.ino",
+		"/E/git/mtklok/shiftest.ino",
+		"/E/git/mtklok/shiftest",
+		"/E/git/mtklok/.gitattributes",
+		"/E/mtklok/main/main.ino",
+		"/C/Users/user/AppData/Roaming/Sublime Text 3/Packages/Arduino-like IDE/app/compiler.py",
+		"/E/mtklok/test/test.ino",
+		"/F/SQUEAK-C.pt3",
+		"/E/mtklok/ad9850/AD9850_LCD_ROTARY_WMENUS/AD9850_LCD_ROTARY_WMENUS.ino",
+		"/E/mtklok/gps_test/gps_test.ino",
+		"/E/mtklok/gps_test.ino",
+		"/E/mtklok/test.ino",
+		"/E/git/piklok/LICENSE",
+		"/I/config.txt",
+		"/E/stm/iar-proj/1-gpio/main.c",
+		"/E/stm/cube-distr/STM32Cube_FW_F1_V1.0.0/Projects/STM32F103RB-Nucleo/Examples/GPIO/GPIO_IOToggle/Src/main.c",
+		"/E/stm/iar-proj/6-freertos-uip/enc28j60.h",
+		"/E/stm/iar-proj/6-freertos-uip/enc28j60.c",
+		"/E/stm/iar-proj/6-freertos-uip/enc28j60.rar",
+		"/E/stm/iar-proj/6-freertos-uip/uip-conf.h",
+		"/E/stm/iar-proj/5-freertos/freertos/FreeRTOSConfig.h",
+		"/E/stm/iar-proj/Libraries_/STM32F10x_StdPeriph_Driver/src/stm32f10x_exti.c",
+		"/E/stm/iar-proj/Libraries_/CMSIS/CM3/DeviceSupport/ST/STM32F10x/startup/iar/startup_stm32f10x_md.s",
+		"/E/stm/iar-proj/Libraries_/CMSIS/CM3/DeviceSupport/ST/STM32F10x/startup/iar/startup_stm32f10x_md_vl.s",
+		"/E/stm/iar-proj/3-timer-noIRQ/main.c",
+		"/E/stm/iar-proj/2-timer/main.c"
+	],
+	"find":
+	{
+		"height": 31.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			";\n",
+			"пина",
+			"  ",
+			"   ",
+			"  ",
+			"	",
+			"silen",
+			"	",
+			"_d",
+			"	",
+			"Usart",
+			"UAR",
+			"UART",
+			"USART0_RX_vect",
+			"  ",
+			"send_data",
+			"	\n",
+			"send_ay",
+			"optiboot",
+			"optiboo",
+			"ng",
+			"inclu",
+			"/",
+			"mega8",
+			"mega",
+			"	",
+			"myFile",
+			"value",
+			");\n",
+			"outputDigit",
+			";********************",
+			"exti0",
+			"exti8",
+			"exti0",
+			"serial",
+			"green",
+			"int",
+			"udp",
+			"flush",
+			"udpDelay",
+			"led",
+			"h2",
+			"BF0FBF",
+			"h2",
+			"    	\n",
+			"      \n",
+			"fuel",
+			"usbasp",
+			"urllib.urlopen",
+			"urllib2",
+			", alg",
+			"datetime.datetime.now()",
+			"datetime.now()",
+			"    ",
+			"sum_degree",
+			"    ",
+			"	\n",
+			" \n",
+			"set",
+			"	",
+			"8",
+			"prob",
+			"plugi",
+			"provided",
+			"\"\"\"",
+			"474",
+			"sidebar",
+			"7.0",
+			"#page",
+			"page",
+			"sidebar",
+			"aligncenter",
+			"relay1",
+			"  \n",
+			"минут",
+			"btnRIGHT",
+			"окончена",
+			" \n",
+			"byte",
+			"unsigned char",
+			"str",
+			"byte",
+			"unsigned char",
+			"byte",
+			"begin"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+			" ",
+			"    ",
+			"sendToAY",
+			"",
+			"\\",
+			"# Modified avrdude - no efuse\n# ------------------------------\n\ntools.avrdude1.cmd.path={runtime.ide.path}/hardware/tools/avr/bin/avrdude\ntools.avrdude1.config.path={runtime.ide.path}/hardware/tools/avr/etc/avrdude.conf\n\ntools.avrdude1.upload.params.verbose=-v\ntools.avrdude1.upload.params.quiet=-q -q\ntools.avrdude1.upload.pattern=\"{cmd.path}\" \"-C{config.path}\" {upload.verbose} -p{build.mcu} -c{upload.protocol} -P{serial.port} -b{upload.speed} -D \"-Uflash:w:{build.path}/{build.project_name}.hex:i\"\n\ntools.avrdude1.program.params.verbose=-v\ntools.avrdude1.program.params.quiet=-q -q\ntools.avrdude1.program.pattern=\"{cmd.path}\" \"-C{config.path}\" {program.verbose} -p{build.mcu} -c{protocol} {program.extra_params} \"-Uflash:w:{build.path}/{build.project_name}.hex:i\"\n\ntools.avrdude1.erase.params.verbose=-v\ntools.avrdude1.erase.params.quiet=-q -q\ntools.avrdude1.erase.pattern=\"{cmd.path}\" \"-C{config.path}\" {erase.verbose} -p{build.mcu} -c{protocol} {program.extra_params} -e -Ulock:w:{bootloader.unlock_bits}:m -Uhfuse:w:{bootloader.high_fuses}:m -Ulfuse:w:{bootloader.low_fuses}:m\n\ntools.avrdude1.bootloader.params.verbose=-v\ntools.avrdude1.bootloader.params.quiet=-q -q\ntools.avrdude1.bootloader.pattern=\"{cmd.path}\" \"-C{config.path}\" {bootloader.verbose} -p{build.mcu} -c{protocol} {program.extra_params} \"-Uflash:w:{runtime.platform.path}/bootloaders/{bootloader.file}:i\" -Ulock:w:{bootloader.lock_bits}:m",
+			"    ",
+			"configFile",
+			"Udp",
+			"h3",
+			"urllib.request.urlopen",
+			"urllib",
+			",\\nalg",
+			",/nalg",
+			"time.time()",
+			"datetime.datetime.now()",
+			"	",
+			"    ",
+			"800",
+			"",
+			"unsigned char",
+			"byte",
+			"unsigned char",
+			"byte",
+			"unsigned char"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "main.c",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2609,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2570,
+								2570
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 2553.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 31.0
+	},
+	"input":
+	{
+		"height": 39.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 146.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.sftp":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "SublimeAVR",
+	"project": "SublimeAVR.sublime-project",
+	"replace":
+	{
+		"height": 58.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

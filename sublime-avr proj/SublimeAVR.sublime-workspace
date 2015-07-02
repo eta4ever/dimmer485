@@ -4,6 +4,38 @@
 		"selected_items":
 		[
 			[
+				"RE",
+				"REGS_TO_MASTER"
+			],
+			[
+				"da",
+				"data_for_master"
+			],
+			[
+				"ec",
+				"encoder_enable"
+			],
+			[
+				"en",
+				"encoder_enabled"
+			],
+			[
+				"new_",
+				"new_button_state"
+			],
+			[
+				"ne",
+				"new_button_state"
+			],
+			[
+				"enc",
+				"encoder_state"
+			],
+			[
+				"encoder",
+				"new_encoder_state"
+			],
+			[
 				"re",
 				"resetPin"
 			],
@@ -332,10 +364,6 @@
 				"targeted_order"
 			],
 			[
-				"ne",
-				"neighbors"
-			],
-			[
 				"atta",
 				"attack_node"
 			],
@@ -486,34 +514,6 @@
 			[
 				"di",
 				"digraph"
-			],
-			[
-				"cita",
-				"citation_graph"
-			],
-			[
-				"ot",
-				"out_degrees_sum"
-			],
-			[
-				"nodes_",
-				"nodes_to_connect"
-			],
-			[
-				"nodes_to_co",
-				"nodes_to_connect_count"
-			],
-			[
-				"sum",
-				"sum_indegree"
-			],
-			[
-				"padd",
-				"padding-top"
-			],
-			[
-				"back",
-				"background-color"
 			]
 		]
 	},
@@ -523,7 +523,7 @@
 			"file": "main.c",
 			"settings":
 			{
-				"buffer_size": 2609,
+				"buffer_size": 6827,
 				"line_ending": "Windows"
 			}
 		}
@@ -659,10 +659,11 @@
 	},
 	"expanded_folders":
 	[
-		"/E/git/dimmer485/sublime-avr proj"
+		"/C/git/dimmer485/sublime-avr proj"
 	],
 	"file_history":
 	[
+		"/C/git/dimmer485/sublime-avr proj/SublimeAVR.sublime-project",
 		"/E/avr/proj/flash_m328.bat",
 		"/E/git/ay-serial/atmega/main.c",
 		"/E/git/dimmer485/sublime-avr proj/main.c",
@@ -789,8 +790,7 @@
 		"/E/stm/iar-proj/Libraries_/STM32F10x_StdPeriph_Driver/src/stm32f10x_exti.c",
 		"/E/stm/iar-proj/Libraries_/CMSIS/CM3/DeviceSupport/ST/STM32F10x/startup/iar/startup_stm32f10x_md.s",
 		"/E/stm/iar-proj/Libraries_/CMSIS/CM3/DeviceSupport/ST/STM32F10x/startup/iar/startup_stm32f10x_md_vl.s",
-		"/E/stm/iar-proj/3-timer-noIRQ/main.c",
-		"/E/stm/iar-proj/2-timer/main.c"
+		"/E/stm/iar-proj/3-timer-noIRQ/main.c"
 	],
 	"find":
 	{
@@ -944,15 +944,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2609,
+						"buffer_size": 6827,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2570,
-								2570
+								170,
+								170
 							]
 						],
 						"settings":
@@ -964,7 +964,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 2553.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,

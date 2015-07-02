@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"se",
+				"setDTR"
+			],
+			[
 				"RE",
 				"REGS_TO_MASTER"
 			],
@@ -102,10 +106,6 @@
 			[
 				"par",
 				"paramValue"
-			],
-			[
-				"se",
-				"secondDotPos"
 			],
 			[
 				"fi",
@@ -520,10 +520,10 @@
 	"buffers":
 	[
 		{
-			"file": "main.c",
+			"file": "/C/git/dimmer485/host/host.py",
 			"settings":
 			{
-				"buffer_size": 6862,
+				"buffer_size": 565,
 				"line_ending": "Windows"
 			}
 		}
@@ -663,6 +663,7 @@
 	],
 	"file_history":
 	[
+		"/C/git/dimmer485/sublime-avr proj/main.c",
 		"/C/git/dimmer485/sublime-avr proj/SublimeAVR.sublime-project",
 		"/E/avr/proj/flash_m328.bat",
 		"/E/git/ay-serial/atmega/main.c",
@@ -789,8 +790,7 @@
 		"/E/stm/iar-proj/5-freertos/freertos/FreeRTOSConfig.h",
 		"/E/stm/iar-proj/Libraries_/STM32F10x_StdPeriph_Driver/src/stm32f10x_exti.c",
 		"/E/stm/iar-proj/Libraries_/CMSIS/CM3/DeviceSupport/ST/STM32F10x/startup/iar/startup_stm32f10x_md.s",
-		"/E/stm/iar-proj/Libraries_/CMSIS/CM3/DeviceSupport/ST/STM32F10x/startup/iar/startup_stm32f10x_md_vl.s",
-		"/E/stm/iar-proj/3-timer-noIRQ/main.c"
+		"/E/stm/iar-proj/Libraries_/CMSIS/CM3/DeviceSupport/ST/STM32F10x/startup/iar/startup_stm32f10x_md_vl.s"
 	],
 	"find":
 	{
@@ -940,31 +940,27 @@
 			[
 				{
 					"buffer": 0,
-					"file": "main.c",
+					"file": "/C/git/dimmer485/host/host.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 6862,
+						"buffer_size": 565,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								341,
-								341
+								348,
+								348
 							]
 						],
 						"settings":
 						{
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/C++/C++.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/Python/Python.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 1725.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,

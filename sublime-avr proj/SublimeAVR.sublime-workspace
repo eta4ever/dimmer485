@@ -523,7 +523,7 @@
 			"file": "main.c",
 			"settings":
 			{
-				"buffer_size": 6827,
+				"buffer_size": 6862,
 				"line_ending": "Windows"
 			}
 		}
@@ -944,15 +944,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 6827,
+						"buffer_size": 6862,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								170,
-								170
+								341,
+								341
 							]
 						],
 						"settings":
@@ -964,7 +964,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1725.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,

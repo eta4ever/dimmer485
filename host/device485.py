@@ -17,13 +17,15 @@ CHANGE_ADDR = 30
 
 class Device:
 
-	def __init__(self, address, name, devtype):
+	def __init__(self, address, name, devtype, initial_regs):
 		""" конструктор"""
 
 		self.address = address
 		self.name = name
 		self.type = devtype
-		self.registers = [0, 0]
+		self.registers = [0,0]
+		
+		self.write_registers(initial_regs)
 
 	def connect(self):
 		""" подключение к устройству """

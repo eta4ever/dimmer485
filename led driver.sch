@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="no" active="no"/>
@@ -5557,8 +5557,8 @@ Wickmann</description>
 <part name="R1" library="resistor" deviceset="R-EU_" device="M1206"/>
 <part name="GND3" library="supply1" deviceset="GND" device=""/>
 <part name="R2" library="resistor" deviceset="R-EU_" device="R1206" value="22"/>
-<part name="Q1" library="transistor-small-signal" deviceset="BC639" device=""/>
-<part name="Q2" library="transistor-small-signal" deviceset="BC640" device=""/>
+<part name="Q1" library="transistor-small-signal" deviceset="BC639" device="" value="BCP56"/>
+<part name="Q2" library="transistor-small-signal" deviceset="BC640" device="" value="BCP53"/>
 <part name="P+3" library="supply1" deviceset="VCC" device=""/>
 <part name="GND4" library="supply1" deviceset="GND" device=""/>
 <part name="R3" library="resistor" deviceset="R-EU_" device="R1206" value="5R0"/>
@@ -5610,8 +5610,8 @@ Wickmann</description>
 <instance part="Q3" gate="G$1" x="144.78" y="121.92"/>
 <instance part="GND5" gate="1" x="147.32" y="111.76"/>
 <instance part="C1" gate="G$1" x="147.32" y="137.16"/>
-<instance part="P+5" gate="1" x="147.32" y="147.32"/>
-<instance part="F1" gate="1" x="162.56" y="142.24"/>
+<instance part="P+5" gate="1" x="147.32" y="160.02"/>
+<instance part="F1" gate="1" x="147.32" y="149.86" rot="R90"/>
 <instance part="LED" gate="-1" x="172.72" y="142.24" smashed="yes">
 <attribute name="NAME" x="175.26" y="141.478" size="1.524" layer="95"/>
 </instance>
@@ -5757,10 +5757,6 @@ Wickmann</description>
 <wire x1="93.98" y1="45.72" x2="93.98" y2="66.04" width="0.1524" layer="91"/>
 <pinref part="ISP" gate="-1" pin="S"/>
 <wire x1="93.98" y1="66.04" x2="119.38" y2="66.04" width="0.1524" layer="91"/>
-<wire x1="93.98" y1="66.04" x2="93.98" y2="119.38" width="0.1524" layer="91"/>
-<pinref part="R2" gate="G$1" pin="1"/>
-<wire x1="93.98" y1="119.38" x2="96.52" y2="119.38" width="0.1524" layer="91"/>
-<junction x="93.98" y="66.04"/>
 </segment>
 </net>
 <net name="N$11" class="0">
@@ -5793,6 +5789,12 @@ Wickmann</description>
 <wire x1="109.22" y1="43.18" x2="109.22" y2="45.72" width="0.1524" layer="91"/>
 <pinref part="ISP" gate="-9" pin="S"/>
 <wire x1="109.22" y1="45.72" x2="119.38" y2="45.72" width="0.1524" layer="91"/>
+<wire x1="109.22" y1="45.72" x2="109.22" y2="96.52" width="0.1524" layer="91"/>
+<pinref part="R2" gate="G$1" pin="1"/>
+<wire x1="109.22" y1="96.52" x2="93.98" y2="96.52" width="0.1524" layer="91"/>
+<wire x1="93.98" y1="96.52" x2="93.98" y2="119.38" width="0.1524" layer="91"/>
+<wire x1="93.98" y1="119.38" x2="96.52" y2="119.38" width="0.1524" layer="91"/>
+<junction x="109.22" y="45.72"/>
 </segment>
 </net>
 <net name="N$5" class="0">
@@ -5837,22 +5839,22 @@ Wickmann</description>
 <junction x="147.32" y="129.54"/>
 </segment>
 </net>
-<net name="+12V" class="0">
+<net name="N$13" class="0">
 <segment>
 <pinref part="C1" gate="G$1" pin="1"/>
-<pinref part="P+5" gate="1" pin="+12V"/>
-<wire x1="147.32" y1="139.7" x2="147.32" y2="142.24" width="0.1524" layer="91"/>
 <pinref part="F1" gate="1" pin="1"/>
-<wire x1="147.32" y1="142.24" x2="147.32" y2="144.78" width="0.1524" layer="91"/>
-<wire x1="147.32" y1="142.24" x2="157.48" y2="142.24" width="0.1524" layer="91"/>
+<wire x1="147.32" y1="144.78" x2="147.32" y2="142.24" width="0.1524" layer="91"/>
+<pinref part="LED" gate="-1" pin="S"/>
+<wire x1="147.32" y1="142.24" x2="147.32" y2="139.7" width="0.1524" layer="91"/>
+<wire x1="170.18" y1="142.24" x2="147.32" y2="142.24" width="0.1524" layer="91"/>
 <junction x="147.32" y="142.24"/>
 </segment>
 </net>
-<net name="N$12" class="0">
+<net name="+12V" class="0">
 <segment>
+<pinref part="P+5" gate="1" pin="+12V"/>
 <pinref part="F1" gate="1" pin="2"/>
-<pinref part="LED" gate="-1" pin="S"/>
-<wire x1="167.64" y1="142.24" x2="170.18" y2="142.24" width="0.1524" layer="91"/>
+<wire x1="147.32" y1="157.48" x2="147.32" y2="154.94" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>

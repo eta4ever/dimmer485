@@ -655,6 +655,8 @@
 	],
 	"file_history":
 	[
+		"/C/git/dimmer485/todo.txt",
+		"/C/git/led_light/README.md",
 		"/C/git/dimmer485/host/devices.cfg",
 		"/C/git/dimmer485/host/device485.py",
 		"/C/git/dimmer485/host/host.py",
@@ -780,9 +782,7 @@
 		"/E/mtklok/gps_test.ino",
 		"/E/mtklok/test.ino",
 		"/E/git/piklok/LICENSE",
-		"/I/config.txt",
-		"/E/stm/iar-proj/1-gpio/main.c",
-		"/E/stm/cube-distr/STM32Cube_FW_F1_V1.0.0/Projects/STM32F103RB-Nucleo/Examples/GPIO/GPIO_IOToggle/Src/main.c"
+		"/I/config.txt"
 	],
 	"find":
 	{

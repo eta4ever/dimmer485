@@ -1,20 +1,18 @@
-import serial, time
+from device485 import Device
 
-# параметры COM порта
-comPort = "COM3"
-baudRate = 38400
+test_device = Device(51, "test encoder", "encoder")
 
-# 10 миллисекунд - приемный таймаут
-serialConn = serial.Serial(comPort, baudRate, timeout = 1)
+for counter in range(0,10):
+	
+	if test_device.read_registers():
+		print ("Successfully read: %s" % test_device.get_registers())
+	if test_device.write_registers([counter,counter+1]):
+		print ("Successfully set: %s" % test_device.get_registers())
+	print("---")
 
-time.sleep(0.01)	
-serialConn.setDTR(False)
-time.sleep(0.01)	
-serialConn.write([1,2,3,4,5,6,7,8,9,0])
-time.sleep(0.01)	
-serialConn.setDTR(True)
-time.sleep(0.01)
-print(list(serialConn.read(10)))
+if test_device.set_address(51):
+	print ("Successfully changed address")
 
-# закрыть порт
-serialConn.close()
+	if test_device.read_registers():
+		print ("Successfully read: %s" % test_device.get_registers())
+

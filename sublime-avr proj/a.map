@@ -1,32 +1,77 @@
 Archive member included because of file (symbol)
 
-e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_exit.o)
-                              e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm328p.o (exit)
+c:/avr8tc/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_exit.o)
+                              c:/avr8tc/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm328p.o (exit)
+c:/avr8tc/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_copy_data.o)
+                              main.o (__do_copy_data)
+c:/avr8tc/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_clear_bss.o)
+                              main.o (__do_clear_bss)
+
+Allocating common symbols
+Common symbol       size              file
+
+packet              0x5               main.o
 
 Discarded input sections
 
- .data          0x00000000        0x0 e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm328p.o
- .bss           0x00000000        0x0 e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm328p.o
+ .data          0x00000000        0x0 c:/avr8tc/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm328p.o
+ .bss           0x00000000        0x0 c:/avr8tc/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm328p.o
  .text          0x00000000        0x0 main.o
  .data          0x00000000        0x0 main.o
  .bss           0x00000000        0x0 main.o
- .text.setup    0x00000000       0x16 main.o
- .text          0x00000000        0x0 e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_exit.o)
- .data          0x00000000        0x0 e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_exit.o)
- .bss           0x00000000        0x0 e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_exit.o)
+ .text.setup    0x00000000       0x2c main.o
+ .text.encoder_enable
+                0x00000000       0x12 main.o
+ .text.checksum
+                0x00000000       0x1e main.o
+ .text          0x00000000        0x0 c:/avr8tc/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_exit.o)
+ .data          0x00000000        0x0 c:/avr8tc/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_exit.o)
+ .bss           0x00000000        0x0 c:/avr8tc/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_exit.o)
  .text.libgcc.mul
-                0x00000000        0x0 e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_exit.o)
+                0x00000000        0x0 c:/avr8tc/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_exit.o)
  .text.libgcc.div
-                0x00000000        0x0 e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_exit.o)
- .text.libgcc   0x00000000        0x0 e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_exit.o)
+                0x00000000        0x0 c:/avr8tc/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_exit.o)
+ .text.libgcc   0x00000000        0x0 c:/avr8tc/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_exit.o)
  .text.libgcc.prologue
-                0x00000000        0x0 e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_exit.o)
+                0x00000000        0x0 c:/avr8tc/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_exit.o)
  .text.libgcc.builtins
-                0x00000000        0x0 e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_exit.o)
+                0x00000000        0x0 c:/avr8tc/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_exit.o)
  .text.libgcc.fmul
-                0x00000000        0x0 e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_exit.o)
+                0x00000000        0x0 c:/avr8tc/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_exit.o)
  .text.libgcc.fixed
-                0x00000000        0x0 e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_exit.o)
+                0x00000000        0x0 c:/avr8tc/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_exit.o)
+ .text          0x00000000        0x0 c:/avr8tc/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_copy_data.o)
+ .data          0x00000000        0x0 c:/avr8tc/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_copy_data.o)
+ .bss           0x00000000        0x0 c:/avr8tc/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_copy_data.o)
+ .text.libgcc.mul
+                0x00000000        0x0 c:/avr8tc/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_copy_data.o)
+ .text.libgcc.div
+                0x00000000        0x0 c:/avr8tc/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_copy_data.o)
+ .text.libgcc   0x00000000        0x0 c:/avr8tc/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_copy_data.o)
+ .text.libgcc.prologue
+                0x00000000        0x0 c:/avr8tc/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_copy_data.o)
+ .text.libgcc.builtins
+                0x00000000        0x0 c:/avr8tc/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_copy_data.o)
+ .text.libgcc.fmul
+                0x00000000        0x0 c:/avr8tc/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_copy_data.o)
+ .text.libgcc.fixed
+                0x00000000        0x0 c:/avr8tc/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_copy_data.o)
+ .text          0x00000000        0x0 c:/avr8tc/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_clear_bss.o)
+ .data          0x00000000        0x0 c:/avr8tc/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_clear_bss.o)
+ .bss           0x00000000        0x0 c:/avr8tc/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_clear_bss.o)
+ .text.libgcc.mul
+                0x00000000        0x0 c:/avr8tc/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_clear_bss.o)
+ .text.libgcc.div
+                0x00000000        0x0 c:/avr8tc/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_clear_bss.o)
+ .text.libgcc   0x00000000        0x0 c:/avr8tc/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_clear_bss.o)
+ .text.libgcc.prologue
+                0x00000000        0x0 c:/avr8tc/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_clear_bss.o)
+ .text.libgcc.builtins
+                0x00000000        0x0 c:/avr8tc/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_clear_bss.o)
+ .text.libgcc.fmul
+                0x00000000        0x0 c:/avr8tc/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_clear_bss.o)
+ .text.libgcc.fixed
+                0x00000000        0x0 c:/avr8tc/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_clear_bss.o)
 
 Memory Configuration
 
@@ -43,14 +88,14 @@ user_signatures  0x00850000         0x00000400         rw !x
 Linker script and memory map
 
 Address of section .data set to 0x800100
-LOAD e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm328p.o
+LOAD c:/avr8tc/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm328p.o
 LOAD main.o
-LOAD e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a
-LOAD e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5\libm.a
+LOAD c:/avr8tc/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a
+LOAD c:/avr8tc/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5\libm.a
 START GROUP
-LOAD e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a
-LOAD e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5\libm.a
-LOAD e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5\libc.a
+LOAD c:/avr8tc/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a
+LOAD c:/avr8tc/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5\libm.a
+LOAD c:/avr8tc/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5\libc.a
 END GROUP
 
 .hash
@@ -143,9 +188,9 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000      0x12a
+.text           0x00000000      0x382
  *(.vectors)
- .vectors       0x00000000       0x68 e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm328p.o
+ .vectors       0x00000000       0x68 c:/avr8tc/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm328p.o
                 0x00000000                __vector_default
                 0x00000000                __vectors
  *(.vectors)
@@ -171,17 +216,21 @@ END GROUP
  SORT(*)(.ctors)
  SORT(*)(.dtors)
  *(.init0)
- .init0         0x00000068        0x0 e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm328p.o
+ .init0         0x00000068        0x0 c:/avr8tc/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm328p.o
                 0x00000068                __init
  *(.init0)
  *(.init1)
  *(.init1)
  *(.init2)
- .init2         0x00000068        0xc e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm328p.o
+ .init2         0x00000068        0xc c:/avr8tc/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm328p.o
  *(.init2)
  *(.init3)
  *(.init3)
  *(.init4)
+ .init4         0x00000074       0x16 c:/avr8tc/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_copy_data.o)
+                0x00000074                __do_copy_data
+ .init4         0x0000008a       0x10 c:/avr8tc/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_clear_bss.o)
+                0x0000008a                __do_clear_bss
  *(.init4)
  *(.init5)
  *(.init5)
@@ -192,46 +241,65 @@ END GROUP
  *(.init8)
  *(.init8)
  *(.init9)
- .init9         0x00000074        0x8 e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm328p.o
+ .init9         0x0000009a        0x8 c:/avr8tc/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm328p.o
  *(.init9)
  *(.text)
- .text          0x0000007c        0x4 e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm328p.o
-                0x0000007c                __vector_22
-                0x0000007c                __vector_1
-                0x0000007c                __vector_24
-                0x0000007c                __vector_12
-                0x0000007c                __bad_interrupt
-                0x0000007c                __vector_6
-                0x0000007c                __vector_3
-                0x0000007c                __vector_23
-                0x0000007c                __vector_25
-                0x0000007c                __vector_11
-                0x0000007c                __vector_13
-                0x0000007c                __vector_17
-                0x0000007c                __vector_19
-                0x0000007c                __vector_7
-                0x0000007c                __vector_5
-                0x0000007c                __vector_4
-                0x0000007c                __vector_9
-                0x0000007c                __vector_2
-                0x0000007c                __vector_21
-                0x0000007c                __vector_15
-                0x0000007c                __vector_8
-                0x0000007c                __vector_14
-                0x0000007c                __vector_10
-                0x0000007c                __vector_16
-                0x0000007c                __vector_18
-                0x0000007c                __vector_20
-                0x00000080                . = ALIGN (0x2)
+ .text          0x000000a2        0x4 c:/avr8tc/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm328p.o
+                0x000000a2                __vector_22
+                0x000000a2                __vector_1
+                0x000000a2                __vector_24
+                0x000000a2                __vector_12
+                0x000000a2                __bad_interrupt
+                0x000000a2                __vector_6
+                0x000000a2                __vector_3
+                0x000000a2                __vector_23
+                0x000000a2                __vector_25
+                0x000000a2                __vector_11
+                0x000000a2                __vector_13
+                0x000000a2                __vector_17
+                0x000000a2                __vector_19
+                0x000000a2                __vector_7
+                0x000000a2                __vector_5
+                0x000000a2                __vector_4
+                0x000000a2                __vector_2
+                0x000000a2                __vector_21
+                0x000000a2                __vector_15
+                0x000000a2                __vector_8
+                0x000000a2                __vector_14
+                0x000000a2                __vector_10
+                0x000000a2                __vector_18
+                0x000000a2                __vector_20
+                0x000000a6                . = ALIGN (0x2)
  *(.text.*)
+ .text.encoder_scan
+                0x000000a6       0xa8 main.o
+                0x000000a6                encoder_scan
+ .text.__vector_16
+                0x0000014e       0x1e main.o
+                0x0000014e                __vector_16
+ .text.__vector_9
+                0x0000016c       0x4e main.o
+                0x0000016c                __vector_9
+ .text.receive_packet
+                0x000001ba       0xc0 main.o
+                0x000001ba                receive_packet
+ .text.send_packet
+                0x0000027a       0x60 main.o
+                0x0000027a                send_packet
+ .text.send_registers
+                0x000002da       0x20 main.o
+                0x000002da                send_registers
+ .text.process_packet
+                0x000002fa       0x32 main.o
+                0x000002fa                process_packet
  .text.startup.main
-                0x00000080       0xa6 main.o
-                0x00000080                main
-                0x00000126                . = ALIGN (0x2)
+                0x0000032c       0x52 main.o
+                0x0000032c                main
+                0x0000037e                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00000126        0x0 e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_exit.o)
-                0x00000126                _exit
-                0x00000126                exit
+ .fini9         0x0000037e        0x0 c:/avr8tc/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_exit.o)
+                0x0000037e                _exit
+                0x0000037e                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -250,36 +318,53 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00000126        0x4 e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_exit.o)
+ .fini0         0x0000037e        0x4 c:/avr8tc/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x0000012a                _etext = .
+                0x00000382                _etext = .
 
-.data           0x00800100        0x0 load address 0x0000012a
+.data           0x00800100        0x2 load address 0x00000382
                 0x00800100                PROVIDE (__data_start, .)
  *(.data)
  *(.data*)
+ .data.encoder_enabled
+                0x00800100        0x1 main.o
+                0x00800100                encoder_enabled
+ .data.address  0x00800101        0x1 main.o
+                0x00800101                address
  *(.rodata)
  *(.rodata*)
  *(.gnu.linkonce.d*)
-                0x00800100                . = ALIGN (0x2)
-                0x00800100                _edata = .
-                0x00800100                PROVIDE (__data_end, .)
+                0x00800102                . = ALIGN (0x2)
+                0x00800102                _edata = .
+                0x00800102                PROVIDE (__data_end, .)
 
-.bss            0x00800100        0x0
-                0x00800100                PROVIDE (__bss_start, .)
+.bss            0x00800102        0xa
+                0x00800102                PROVIDE (__bss_start, .)
  *(.bss)
  *(.bss*)
+ .bss.button_state
+                0x00800102        0x1 main.o
+                0x00800102                button_state
+ .bss.encoder_state
+                0x00800103        0x1 main.o
+                0x00800103                encoder_state
+ .bss.timeout   0x00800104        0x1 main.o
+                0x00800104                timeout
+ .bss.data      0x00800105        0x2 main.o
+                0x00800105                data
  *(COMMON)
-                0x00800100                PROVIDE (__bss_end, .)
-                0x0000012a                __data_load_start = LOADADDR (.data)
-                0x0000012a                __data_load_end = (__data_load_start + SIZEOF (.data))
+ COMMON         0x00800107        0x5 main.o
+                0x00800107                packet
+                0x0080010c                PROVIDE (__bss_end, .)
+                0x00000382                __data_load_start = LOADADDR (.data)
+                0x00000384                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x00800060        0x0
-                0x00800060                PROVIDE (__noinit_start, .)
+.noinit         0x0080010c        0x0
+                0x0080010c                PROVIDE (__noinit_start, .)
  *(.noinit*)
-                0x00800060                PROVIDE (__noinit_end, .)
-                0x00800060                _end = .
-                0x00800060                PROVIDE (__heap_start, .)
+                0x0080010c                PROVIDE (__noinit_end, .)
+                0x0080010c                _end = .
+                0x0080010c                PROVIDE (__heap_start, .)
 
 .eeprom         0x00810000        0x0
  *(.eeprom*)
@@ -391,40 +476,65 @@ LOAD linker stubs
 Cross Reference Table
 
 Symbol                                            File
-__bad_interrupt                                   e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm328p.o
-__heap_end                                        e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm328p.o
-__init                                            e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm328p.o
-__stack                                           e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm328p.o
-__vector_1                                        e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm328p.o
-__vector_10                                       e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm328p.o
-__vector_11                                       e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm328p.o
-__vector_12                                       e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm328p.o
-__vector_13                                       e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm328p.o
-__vector_14                                       e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm328p.o
-__vector_15                                       e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm328p.o
-__vector_16                                       e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm328p.o
-__vector_17                                       e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm328p.o
-__vector_18                                       e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm328p.o
-__vector_19                                       e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm328p.o
-__vector_2                                        e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm328p.o
-__vector_20                                       e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm328p.o
-__vector_21                                       e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm328p.o
-__vector_22                                       e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm328p.o
-__vector_23                                       e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm328p.o
-__vector_24                                       e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm328p.o
-__vector_25                                       e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm328p.o
-__vector_3                                        e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm328p.o
-__vector_4                                        e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm328p.o
-__vector_5                                        e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm328p.o
-__vector_6                                        e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm328p.o
-__vector_7                                        e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm328p.o
-__vector_8                                        e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm328p.o
-__vector_9                                        e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm328p.o
-__vector_default                                  e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm328p.o
-__vectors                                         e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm328p.o
-_exit                                             e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_exit.o)
-exit                                              e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_exit.o)
-                                                  e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm328p.o
+__bad_interrupt                                   c:/avr8tc/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm328p.o
+__bss_end                                         c:/avr8tc/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_clear_bss.o)
+__bss_start                                       c:/avr8tc/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_clear_bss.o)
+__data_end                                        c:/avr8tc/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_copy_data.o)
+__data_load_start                                 c:/avr8tc/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_copy_data.o)
+__data_start                                      c:/avr8tc/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_copy_data.o)
+__do_clear_bss                                    c:/avr8tc/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_clear_bss.o)
+                                                  main.o
+__do_copy_data                                    c:/avr8tc/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_copy_data.o)
+                                                  main.o
+__heap_end                                        c:/avr8tc/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm328p.o
+__init                                            c:/avr8tc/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm328p.o
+__stack                                           c:/avr8tc/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm328p.o
+__vector_1                                        c:/avr8tc/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm328p.o
+__vector_10                                       c:/avr8tc/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm328p.o
+__vector_11                                       c:/avr8tc/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm328p.o
+__vector_12                                       c:/avr8tc/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm328p.o
+__vector_13                                       c:/avr8tc/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm328p.o
+__vector_14                                       c:/avr8tc/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm328p.o
+__vector_15                                       c:/avr8tc/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm328p.o
+__vector_16                                       main.o
+                                                  c:/avr8tc/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm328p.o
+__vector_17                                       c:/avr8tc/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm328p.o
+__vector_18                                       c:/avr8tc/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm328p.o
+__vector_19                                       c:/avr8tc/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm328p.o
+__vector_2                                        c:/avr8tc/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm328p.o
+__vector_20                                       c:/avr8tc/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm328p.o
+__vector_21                                       c:/avr8tc/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm328p.o
+__vector_22                                       c:/avr8tc/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm328p.o
+__vector_23                                       c:/avr8tc/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm328p.o
+__vector_24                                       c:/avr8tc/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm328p.o
+__vector_25                                       c:/avr8tc/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm328p.o
+__vector_3                                        c:/avr8tc/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm328p.o
+__vector_4                                        c:/avr8tc/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm328p.o
+__vector_5                                        c:/avr8tc/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm328p.o
+__vector_6                                        c:/avr8tc/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm328p.o
+__vector_7                                        c:/avr8tc/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm328p.o
+__vector_8                                        c:/avr8tc/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm328p.o
+__vector_9                                        main.o
+                                                  c:/avr8tc/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm328p.o
+__vector_default                                  c:/avr8tc/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm328p.o
+__vectors                                         c:/avr8tc/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm328p.o
+_exit                                             c:/avr8tc/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_exit.o)
+address                                           main.o
+button_state                                      main.o
+checksum                                          main.o
+data                                              main.o
+encoder_enable                                    main.o
+encoder_enabled                                   main.o
+encoder_scan                                      main.o
+encoder_state                                     main.o
+exit                                              c:/avr8tc/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_exit.o)
+                                                  c:/avr8tc/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm328p.o
 main                                              main.o
-                                                  e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm328p.o
+                                                  c:/avr8tc/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm328p.o
+packet                                            main.o
+process_packet                                    main.o
+receive_packet                                    main.o
+send_packet                                       main.o
+send_registers                                    main.o
 setup                                             main.o
+timeout                                           main.o

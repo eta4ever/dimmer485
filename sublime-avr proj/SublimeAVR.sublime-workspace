@@ -4,12 +4,24 @@
 		"selected_items":
 		[
 			[
-				"se",
-				"setDTR"
+				"read",
+				"read_registers"
 			],
 			[
-				"read",
-				"readDevice"
+				"test",
+				"test_device"
+			],
+			[
+				"rece",
+				"received_packet"
+			],
+			[
+				"packet",
+				"packet_checksum"
+			],
+			[
+				"se",
+				"setDTR"
 			],
 			[
 				"write",
@@ -206,10 +218,6 @@
 			[
 				"u",
 				"unixtime"
-			],
-			[
-				"rece",
-				"receiveCounter"
 			],
 			[
 				"send",
@@ -506,27 +514,11 @@
 			[
 				"nodes_to_co",
 				"nodes_to_connect_count"
-			],
-			[
-				"sum",
-				"sum_indegree"
-			],
-			[
-				"padd",
-				"padding-top"
 			]
 		]
 	},
 	"buffers":
 	[
-		{
-			"file": "/E/git/dimmer485/host/host.py",
-			"settings":
-			{
-				"buffer_size": 2036,
-				"line_ending": "Windows"
-			}
-		}
 	],
 	"build_system": "SublimeAVR",
 	"build_system_choices":
@@ -599,7 +591,7 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 400.0,
+		"height": 392.0,
 		"last_filter": "avr",
 		"selected_items":
 		[
@@ -636,7 +628,7 @@
 				"Package Control: Install Package"
 			]
 		],
-		"width": 408.0
+		"width": 400.0
 	},
 	"console":
 	{
@@ -659,12 +651,20 @@
 	},
 	"expanded_folders":
 	[
-		"/E/git/dimmer485/sublime-avr proj"
+		"/c/Program Files (x86)/GnuWin32/bin"
 	],
 	"file_history":
 	[
-		"/E/git/dimmer485/sublime-avr proj/main.c",
+		"/C/git/dimmer485/host/device485.py",
+		"/C/git/dimmer485/host/comm485.py",
+		"/C/git/dimmer485/host/host.py",
+		"/C/git/dimmer485/host/device.py",
+		"/C/git/dimmer485/sublime-avr proj/main.c",
+		"/C/git/dimmer485/bk/main.c",
+		"/C/avrdude/flash328.bat",
+		"/C/git/dimmer485/sublime-avr proj/SublimeAVR.sublime-project",
 		"/E/git/dimmer485/host/host.py",
+		"/E/git/dimmer485/sublime-avr proj/main.c",
 		"/E/avr/proj/flash_m328.bat",
 		"/E/git/ay-serial/atmega/main.c",
 		"/E/tmp/main.c",
@@ -782,15 +782,7 @@
 		"/I/config.txt",
 		"/E/stm/iar-proj/1-gpio/main.c",
 		"/E/stm/cube-distr/STM32Cube_FW_F1_V1.0.0/Projects/STM32F103RB-Nucleo/Examples/GPIO/GPIO_IOToggle/Src/main.c",
-		"/E/stm/iar-proj/6-freertos-uip/enc28j60.h",
-		"/E/stm/iar-proj/6-freertos-uip/enc28j60.c",
-		"/E/stm/iar-proj/6-freertos-uip/enc28j60.rar",
-		"/E/stm/iar-proj/6-freertos-uip/uip-conf.h",
-		"/E/stm/iar-proj/5-freertos/freertos/FreeRTOSConfig.h",
-		"/E/stm/iar-proj/Libraries_/STM32F10x_StdPeriph_Driver/src/stm32f10x_exti.c",
-		"/E/stm/iar-proj/Libraries_/CMSIS/CM3/DeviceSupport/ST/STM32F10x/startup/iar/startup_stm32f10x_md.s",
-		"/E/stm/iar-proj/Libraries_/CMSIS/CM3/DeviceSupport/ST/STM32F10x/startup/iar/startup_stm32f10x_md_vl.s",
-		"/E/stm/iar-proj/3-timer-noIRQ/main.c"
+		"/E/stm/iar-proj/6-freertos-uip/enc28j60.h"
 	],
 	"find":
 	{
@@ -808,6 +800,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"переданными",
 			";\n",
 			"пина",
 			"  ",
@@ -935,41 +928,8 @@
 	"groups":
 	[
 		{
-			"selected": 0,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "/E/git/dimmer485/host/host.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2036,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1949,
-								1949
-							]
-						],
-						"settings":
-						{
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/Python/Python.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 1311.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				}
 			]
 		}
 	],

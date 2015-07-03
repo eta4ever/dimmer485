@@ -655,6 +655,7 @@
 	],
 	"file_history":
 	[
+		"/C/git/dimmer485/README.md",
 		"/C/git/dimmer485/todo.txt",
 		"/C/git/led_light/README.md",
 		"/C/git/dimmer485/host/devices.cfg",
@@ -781,8 +782,7 @@
 		"/E/mtklok/gps_test/gps_test.ino",
 		"/E/mtklok/gps_test.ino",
 		"/E/mtklok/test.ino",
-		"/E/git/piklok/LICENSE",
-		"/I/config.txt"
+		"/E/git/piklok/LICENSE"
 	],
 	"find":
 	{

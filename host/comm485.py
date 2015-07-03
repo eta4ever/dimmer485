@@ -1,13 +1,24 @@
 # реализация мини-протокола работы с устройствами по RS-485:
 # пакет из 5 байт. Адрес, команда, данные, данные, контрольная сумма.
-import serial, time
+import serial, time, configparser
+
+CONFIG_FILE = "cfg\\connection.cfg"
 
 class Conn485:
 
-	def __init__(self, port, baudrate, rx_timeout):
+	def __init__(self):
 		""" конструктор """
 		
+		# чтение настроек из конфигурационного файла
+		config = configparser.RawConfigParser()
+		config.read(CONFIG_FILE)
+
+		port = config.get("MAIN", "port")
+		baudrate = config.getint("MAIN", "baudrate")
+		rx_timeout = config.getfloat("MAIN", "timeout")
+
 		# открытие соединения UART
+
 		self.conn = serial.Serial(port, baudrate, timeout = rx_timeout)
 		time.sleep(0.01)
 

@@ -2,7 +2,7 @@ from device485 import Device
 import configparser
 
 # конфигурационный файл устройтв
-CONFIG_FILE = "devices.cfg"
+CONFIG_FILE = "cfg\\devices.cfg"
 
 # список объектов устройств
 devices = []
@@ -19,7 +19,7 @@ for section in config.sections():
 	dev_type = config.get(section, 'type')
 	init_regs = [config.getint(section, 'reg1'), config.getint(section, 'reg2')]
 	devices.append(Device(address, name, dev_type, init_regs))
-	print ('Created device %s type %s with address %i' % (name, dev_type, address))
+	print ('Created device "%s" type "%s" with address %i' % (name, dev_type, address))
 
 if devices[0].read_registers():
 	print ("Successfully read: %s" % devices[0].get_registers())

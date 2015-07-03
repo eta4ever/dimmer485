@@ -2,11 +2,6 @@
 import time
 from comm485 import Conn485
 
-# параметры подключения
-PORT = "COM4"
-BAUDRATE = 38400
-TIMEOUT = 0.01
-
 # адрес мастера
 MASTER = 1
 
@@ -29,7 +24,7 @@ class Device:
 
 	def connect(self):
 		""" подключение к устройству """
-		self.connection = Conn485(PORT, BAUDRATE, TIMEOUT)
+		self.connection = Conn485()
 
 	def disconnect(self):
 		""" отключение от устройства """

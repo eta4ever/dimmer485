@@ -1,5 +1,5 @@
 from device485 import Device
-import configparser
+import time, configparser
 
 # конфигурационный файл устройтв
 CONFIG_FILE = "cfg\\devices.cfg"
@@ -21,20 +21,16 @@ for section in config.sections():
 	devices.append(Device(address, name, dev_type, init_regs))
 	print ('Created device "%s" type "%s" with address %i' % (name, dev_type, address))
 
-if devices[0].read_registers():
-	print ("Successfully read: %s" % devices[0].get_registers())
+if devices[2].read_registers():
+	print ("Successfully read: %s" % devices[2].get_registers())
 
-# for counter in range(0,3):
-	
-# 	if devices[0].read_registers():
-# 		print ("Successfully read: %s" % devices[0].get_registers())
-# 	if devices[0].write_registers([counter,counter+1]):
-# 		print ("Successfully set: %s" % devices[0].get_registers())
-# 	print("---")
 
-# if test_device.set_address(51):
-# 	print ("Successfully changed address")
+while True:
+	brightness = 0
+	while brightness < 256:
 
-# 	if test_device.read_registers():
-# 		print ("Successfully read: %s" % test_device.get_registers())
+		if devices[2].write_registers([brightness,0]):
+			print ("Successfully set", brightness)
+		time.sleep(0.1)
 
+		brightness += 10	

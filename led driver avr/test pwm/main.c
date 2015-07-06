@@ -17,17 +17,21 @@ void setup(void){
 
 	// биты 7-6 актуальны не при PWM, 5-4 не используются, 3 - WGM22, 
 	// биты 2-0 001 задают тактирование без делителя
+	// 010 делитель 8
 	TCCR2B = 0b00000001;
 
 	// на выходе 0
 	OCR2A = 0; 
+
 }
 
 
 int main(void){
+
+	setup();
 	
 	while(1){
-		for (unsigned char counter = 0; counter<255; counter++){
+		for (int counter = 10; counter<255; counter+=1){
 			OCR2A = counter;
 			_delay_ms(10);
 		}

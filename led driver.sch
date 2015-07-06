@@ -5757,6 +5757,10 @@ Wickmann</description>
 <wire x1="93.98" y1="45.72" x2="93.98" y2="66.04" width="0.1524" layer="91"/>
 <pinref part="ISP" gate="-1" pin="S"/>
 <wire x1="93.98" y1="66.04" x2="119.38" y2="66.04" width="0.1524" layer="91"/>
+<pinref part="R2" gate="G$1" pin="1"/>
+<wire x1="93.98" y1="119.38" x2="96.52" y2="119.38" width="0.1524" layer="91"/>
+<wire x1="93.98" y1="66.04" x2="93.98" y2="119.38" width="0.1524" layer="91"/>
+<junction x="93.98" y="66.04"/>
 </segment>
 </net>
 <net name="N$11" class="0">
@@ -5789,12 +5793,6 @@ Wickmann</description>
 <wire x1="109.22" y1="43.18" x2="109.22" y2="45.72" width="0.1524" layer="91"/>
 <pinref part="ISP" gate="-9" pin="S"/>
 <wire x1="109.22" y1="45.72" x2="119.38" y2="45.72" width="0.1524" layer="91"/>
-<wire x1="109.22" y1="45.72" x2="109.22" y2="96.52" width="0.1524" layer="91"/>
-<pinref part="R2" gate="G$1" pin="1"/>
-<wire x1="109.22" y1="96.52" x2="93.98" y2="96.52" width="0.1524" layer="91"/>
-<wire x1="93.98" y1="96.52" x2="93.98" y2="119.38" width="0.1524" layer="91"/>
-<wire x1="93.98" y1="119.38" x2="96.52" y2="119.38" width="0.1524" layer="91"/>
-<junction x="109.22" y="45.72"/>
 </segment>
 </net>
 <net name="N$5" class="0">

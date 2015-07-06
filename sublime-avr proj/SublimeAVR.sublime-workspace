@@ -519,6 +519,14 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "/C/git/dimmer485/led driver avr/main.c",
+			"settings":
+			{
+				"buffer_size": 6842,
+				"line_ending": "Windows"
+			}
+		}
 	],
 	"build_system": "SublimeAVR",
 	"build_system_choices":
@@ -928,8 +936,37 @@
 	"groups":
 	[
 		{
+			"selected": 0,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "/C/git/dimmer485/led driver avr/main.c",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6842,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								443,
+								443
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 207.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
 			]
 		}
 	],

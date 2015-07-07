@@ -1,6 +1,5 @@
 # Класс устройства с методами работы с железом
 import time
-from comm485 import Conn485
 
 # адрес мастера
 MASTER = 1
@@ -12,7 +11,7 @@ CHANGE_ADDR = 30
 
 class Device:
 
-	def __init__(self, address, name, devtype, initial_regs):
+	def __init__(self, address, name, devtype, initial_regs, connection):
 		""" конструктор"""
 
 		self.address = address
@@ -20,31 +19,31 @@ class Device:
 		self.type = devtype
 		self.registers = [0,0]
 		
-		self.write_registers(initial_regs)
+		self.write_registers(initial_regs, connection)
 
-	def connect(self):
-		""" подключение к устройству """
-		self.connection = Conn485()
+	# def connect(self):
+	# 	""" подключение к устройству """
+	# 	self.connection = Conn485()
 
-	def disconnect(self):
-		""" отключение от устройства """
-		del self.connection
+	# def disconnect(self):
+	# 	""" отключение от устройства """
+	# 	del self.connection
 
-	def write_registers(self, registers):
+	def write_registers(self, registers, connection):
 		""" запись регистров устройства, возвращает FF при успехе
 		и 00 при неправильном подтверждении или его отсутствии
 		записывает в поля только при успехе"""
 
 		# в устройство
-		self.connect()
-		self.connection.send([self.address, WRITE_REG, registers[0], registers[1]])
+		# self.connect()
+		connection.send([self.address, WRITE_REG, registers[0], registers[1]])
 		time.sleep(0.01)
 
 		# подтверждение и его проверка
-		ack_packet = self.connection.receive()
+		ack_packet = connection.receive()
 
 		# отключение от устройства
-		self.disconnect()
+		# self.disconnect()
 		
 		# неполный прием или неверная контрольная сумма
 		if ack_packet == [0]: 
@@ -62,23 +61,23 @@ class Device:
 
 			return 0xFF	
 
-	def read_registers(self):
+	def read_registers(self, connection):
 		""" чтение регистров из устройства,
 		записывает в поля и возвращает FF при успехе,
 		иначе возвращает 0"""
 
 		# подключение
-		self.connect()
+		# self.connect()
 
 		# запрос
-		self.connection.send([self.address, READ_REG,0,0])
+		connection.send([self.address, READ_REG,0,0])
 		time.sleep(0.01)
 
 		# получение ответа
-		ack_packet = self.connection.receive()
+		ack_packet = connection.receive()
 
 		# отключение от устройства
-		self.disconnect()
+		# self.disconnect()
 
 		# неполный прием или неверная контрольная сумма
 		if ack_packet == 0: 
@@ -94,21 +93,21 @@ class Device:
 
 		return 0xFF
 
-	def set_address(self, address):
+	def set_address(self, address, connection):
 		""" изменение адреса устройства
 		возвращает 0 при неудаче, при успехе записывает в поле
 		и возращает FF"""
 
 		# в устройство
-		self.connect()
-		self.connection.send([self.address, CHANGE_ADDR, address, 0])
+		# self.connect()
+		connection.send([self.address, CHANGE_ADDR, address, 0])
 		time.sleep(0.01)
 
 		# подтверждение и его проверка
 		ack_packet = self.connection.receive()
 
 		# отключение от устройства
-		self.disconnect()
+		# self.disconnect()
 		
 		# неполный прием или неверная контрольная сумма
 		if ack_packet == [0]: 

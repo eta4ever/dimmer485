@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"dev",
+				"devices"
+			],
+			[
 				"rece",
 				"received_packet"
 			],
@@ -510,20 +514,24 @@
 			[
 				"sum",
 				"sum_indegree"
-			],
-			[
-				"padd",
-				"padding-top"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "main.c",
+			"file": "/E/git/dimmer485/host/comm485.py",
 			"settings":
 			{
-				"buffer_size": 5087,
+				"buffer_size": 1662,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/E/git/dimmer485/host/device485.py",
+			"settings":
+			{
+				"buffer_size": 2985,
 				"line_ending": "Windows"
 			}
 		},
@@ -531,7 +539,7 @@
 			"file": "/E/git/dimmer485/host/host.py",
 			"settings":
 			{
-				"buffer_size": 972,
+				"buffer_size": 1466,
 				"line_ending": "Windows"
 			}
 		}
@@ -607,16 +615,19 @@
 	],
 	"file_history":
 	[
-		"/E/git/dimmer485/host/comm485.py",
+		"/E/git/dimmer485/host/cfg/connection.cfg",
 		"/E/git/dimmer485/host/cfg/devices.cfg",
-		"/E/avr/proj/flash_m328 LED.bat",
+		"/E/git/dimmer485/host/device485.py",
+		"/E/git/ay-serial/host-un_def/ymfile.py",
+		"/E/git/ay-serial/host-un_def/streamer.py",
 		"/E/git/dimmer485/led driver avr/main.c",
+		"/E/git/dimmer485/host/host.py",
+		"/E/git/ay-serial/host/streamer.py",
+		"/E/git/dimmer485/host/comm485.py",
+		"/E/avr/proj/flash_m328 LED.bat",
 		"/E/git/dimmer485/led driver avr/test pwm/main.c",
 		"/E/git/dimmer485/sublime-avr proj/main.c",
 		"/E/git/dimmer485/led driver avr/test pwm/SublimeAVR.sublime-project",
-		"/E/git/dimmer485/host/host.py",
-		"/E/git/dimmer485/host/cfg/connection.cfg",
-		"/E/git/dimmer485/host/device485.py",
 		"/E/git/dimmer485/host/connection.cfg",
 		"/E/git/dimmer485/host/devices.cfg",
 		"/E/avr/proj/fuse_m328.bat",
@@ -731,10 +742,7 @@
 		"/E/mtklok/test/test.ino",
 		"/F/SQUEAK-C.pt3",
 		"/E/mtklok/ad9850/AD9850_LCD_ROTARY_WMENUS/AD9850_LCD_ROTARY_WMENUS.ino",
-		"/E/mtklok/gps_test/gps_test.ino",
-		"/E/mtklok/gps_test.ino",
-		"/E/mtklok/test.ino",
-		"/E/git/piklok/LICENSE"
+		"/E/mtklok/gps_test/gps_test.ino"
 	],
 	"find":
 	{
@@ -885,19 +893,19 @@
 			[
 				{
 					"buffer": 0,
-					"file": "main.c",
+					"file": "/E/git/dimmer485/host/comm485.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5087,
+						"buffer_size": 1662,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2157,
-								2157
+								1309,
+								1309
 							]
 						],
 						"settings":
@@ -905,31 +913,31 @@
 							"incomplete_sync": null,
 							"remote_loading": false,
 							"synced": false,
-							"syntax": "Packages/C++/C++.tmLanguage",
+							"syntax": "Packages/Python/Python.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 4485.0,
+						"translation.y": 690.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "/E/git/dimmer485/host/host.py",
+					"file": "/E/git/dimmer485/host/device485.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 972,
+						"buffer_size": 2985,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								955,
-								955
+								1646,
+								1646
 							]
 						],
 						"settings":
@@ -937,13 +945,43 @@
 							"incomplete_sync": null,
 							"remote_loading": false,
 							"synced": false,
-							"syntax": "Packages/Python/Python.tmLanguage"
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 207.0,
+						"translation.y": 2070.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/E/git/dimmer485/host/host.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1466,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1457,
+								1457
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"syntax": "Packages/Python/Python.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 276.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
 					"type": "text"
 				}
 			]

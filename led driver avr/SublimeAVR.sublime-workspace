@@ -519,30 +519,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "/E/git/dimmer485/host/comm485.py",
-			"settings":
-			{
-				"buffer_size": 1662,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/E/git/dimmer485/host/device485.py",
-			"settings":
-			{
-				"buffer_size": 2985,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/E/git/dimmer485/host/host.py",
-			"settings":
-			{
-				"buffer_size": 1466,
-				"line_ending": "Windows"
-			}
-		}
 	],
 	"build_system": "SublimeAVR",
 	"build_system_choices":
@@ -615,15 +591,17 @@
 	],
 	"file_history":
 	[
+		"/E/git/dimmer485/добавить резистор 2r2 на коллекторе верхнего транзистора.",
+		"/E/git/dimmer485/host/comm485.py",
+		"/E/git/dimmer485/host/host.py",
+		"/E/git/dimmer485/host/device485.py",
+		"/E/git/arduino_timer/timer.ino",
 		"/E/git/dimmer485/host/cfg/connection.cfg",
 		"/E/git/dimmer485/host/cfg/devices.cfg",
-		"/E/git/dimmer485/host/device485.py",
 		"/E/git/ay-serial/host-un_def/ymfile.py",
 		"/E/git/ay-serial/host-un_def/streamer.py",
 		"/E/git/dimmer485/led driver avr/main.c",
-		"/E/git/dimmer485/host/host.py",
 		"/E/git/ay-serial/host/streamer.py",
-		"/E/git/dimmer485/host/comm485.py",
 		"/E/avr/proj/flash_m328 LED.bat",
 		"/E/git/dimmer485/led driver avr/test pwm/main.c",
 		"/E/git/dimmer485/sublime-avr proj/main.c",
@@ -733,7 +711,6 @@
 		"/E/mtklok/main.ino",
 		"/E/git/mtklok/README.md",
 		"/I/config/main.txt",
-		"/E/git/arduino_timer/timer.ino",
 		"/E/git/mtklok/shiftest.ino",
 		"/E/git/mtklok/shiftest",
 		"/E/git/mtklok/.gitattributes",
@@ -741,8 +718,7 @@
 		"/C/Users/user/AppData/Roaming/Sublime Text 3/Packages/Arduino-like IDE/app/compiler.py",
 		"/E/mtklok/test/test.ino",
 		"/F/SQUEAK-C.pt3",
-		"/E/mtklok/ad9850/AD9850_LCD_ROTARY_WMENUS/AD9850_LCD_ROTARY_WMENUS.ino",
-		"/E/mtklok/gps_test/gps_test.ino"
+		"/E/mtklok/ad9850/AD9850_LCD_ROTARY_WMENUS/AD9850_LCD_ROTARY_WMENUS.ino"
 	],
 	"find":
 	{
@@ -888,102 +864,8 @@
 	"groups":
 	[
 		{
-			"selected": 1,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "/E/git/dimmer485/host/comm485.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1662,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1309,
-								1309
-							]
-						],
-						"settings":
-						{
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/Python/Python.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 690.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "/E/git/dimmer485/host/device485.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2985,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1646,
-								1646
-							]
-						],
-						"settings":
-						{
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/Python/Python.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 2070.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "/E/git/dimmer485/host/host.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1466,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1457,
-								1457
-							]
-						],
-						"settings":
-						{
-							"incomplete_sync": null,
-							"syntax": "Packages/Python/Python.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 276.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				}
 			]
 		}
 	],

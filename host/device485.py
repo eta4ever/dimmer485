@@ -60,6 +60,7 @@ class Device:
 			self.registers[1] = registers[1]	
 
 			return 0xFF	
+		# return 0xFF
 
 	def read_registers(self, connection):
 		""" чтение регистров из устройства,

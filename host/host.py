@@ -49,29 +49,58 @@ for section in config.sections():
 	else:
 		print ('Error creating "%s": incorrect device type "%s"' % (name, dev_type))	
 	
+# формирование словаря вида "имя исполнителя : код в списке executors"
+executors_id_by_name = { executor.get_name() : executors.index(executor) for executor in executors}
 
+controllers[0].write_registers([100,1], conn)
+controllers[1].write_registers([100,0], conn)
 
 try:
 
 	while True:
-		if executors[0].read_registers(conn):
-			# print (executors[0].get_registers())
-			pass
-		else:
-			del conn
-			time.sleep(0.1)
-			conn = Conn485()
+		
+		for controller in controllers:
 
-		time.sleep(0.1)
+			# если не читаются регистры управляющего устройства, дергать соединение
+			while not (controller.read_registers(conn)):
+				del conn
+				time.sleep(0.1)
+				conn = Conn485()
+				time.sleep(0.1)
 
-		if executors[0].write_registers([50,1],conn):
-			print("on")
+			print ("Read from %s: %i, %i" %(controller.get_name(), controller.get_registers()[0],
+				controller.get_registers()[1]))
 
-		time.sleep(1)
+			# если не записываются регистры исполнительного устройства, дергать соединение
+			while not(executors[executors_id_by_name[controller.controls()]].write_registers(
+				controller.get_registers(), conn)):
+				del conn
+				conn = Conn485()
+				time.sleep(0.1)
 
-		if executors[0].write_registers([50,0],conn):
-			print("off")
-		time.sleep(1)
+			print ("Wrote %i, %i" %(controller.get_registers()[0], controller.get_registers()[1]))
+
+			time.sleep(1)
+
+		# pass
+		# if executors[0].read_registers(conn):
+		# 	# print (executors[0].get_registers())
+		# 	pass
+		# else:
+		# 	del conn
+		# 	time.sleep(0.1)
+		# 	conn = Conn485()
+
+		# time.sleep(0.1)
+
+		# if executors[0].write_registers([50,1],conn):
+		# 	print("on")
+
+		# time.sleep(1)
+
+		# if executors[0].write_registers([50,0],conn):
+		# 	print("off")
+		# time.sleep(1)
 	
 
 finally:

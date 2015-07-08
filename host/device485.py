@@ -17,8 +17,8 @@ class Device:
 		self.address = address # адрес устройства
 		self.name = name # имя устройства
 		self.type = devtype # тип устройства
-		self.controls = controls # имя устройства, управляемого этим
-		self.priority = priority # приоритет управляющего устройства
+		self.what_controls = controls # имя устройства, управляемого этим
+		self.control_priority = priority # приоритет управляющего устройства
 		self.registers = [0,0] # создание полей регистров
 		
 		# для реального устройства - записать значения регистров в устройство и поля,
@@ -137,13 +137,13 @@ class Device:
 
 		return self.type
 
-	def controls():
+	def controls(self):
 		"""получение имени управлямого устройства"""
 
-		return self.controls
+		return self.what_controls
 
 
-	def priority():
+	def priority(self):
 		""" получение приоритета управляющего устройства"""
 
-		return self.priority
+		return self.control_priority

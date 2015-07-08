@@ -11,39 +11,39 @@ CHANGE_ADDR = 30
 
 class Device:
 
-	def __init__(self, address, name, devtype, initial_regs, connection):
+	def __init__(self, address, name, devtype, controls, priority, initial_regs, connection):
 		""" конструктор"""
 
-		self.address = address
-		self.name = name
-		self.type = devtype
-		self.registers = [0,0]
+		self.address = address # адрес устройства
+		self.name = name # имя устройства
+		self.type = devtype # тип устройства
+		self.controls = controls # имя устройства, управляемого этим
+		self.priority = priority # приоритет управляющего устройства
+		self.registers = [0,0] # создание полей регистров
 		
-		self.write_registers(initial_regs, connection)
-
-	# def connect(self):
-	# 	""" подключение к устройству """
-	# 	self.connection = Conn485()
-
-	# def disconnect(self):
-	# 	""" отключение от устройства """
-	# 	del self.connection
+		# для реального устройства - записать значения регистров в устройство и поля,
+		# для виртуального - только в поля
+		if self.type != "virtual":
+			self.write_registers(initial_regs, connection) 
+		else:
+			self.registers = initial_regs
 
 	def write_registers(self, registers, connection):
 		""" запись регистров устройства, возвращает FF при успехе
 		и 00 при неправильном подтверждении или его отсутствии
 		записывает в поля только при успехе"""
 
+		# для виртуального устройства - только в поля
+		if self.type == "virtual":
+			self.registers = registers
+			return 0xFF
+
 		# в устройство
-		# self.connect()
 		connection.send([self.address, WRITE_REG, registers[0], registers[1]])
 		time.sleep(0.01)
 
 		# подтверждение и его проверка
 		ack_packet = connection.receive()
-
-		# отключение от устройства
-		# self.disconnect()
 		
 		# неполный прием или неверная контрольная сумма
 		if ack_packet == [0]: 
@@ -60,15 +60,16 @@ class Device:
 			self.registers[1] = registers[1]	
 
 			return 0xFF	
-		# return 0xFF
 
 	def read_registers(self, connection):
 		""" чтение регистров из устройства,
 		записывает в поля и возвращает FF при успехе,
 		иначе возвращает 0"""
 
-		# подключение
-		# self.connect()
+		# для виртуального устройства - просто возврат FF,
+		# так как поля всегда актуальны
+		if self.type == "virtual":
+			return 0xFF
 
 		# запрос
 		connection.send([self.address, READ_REG,0,0])
@@ -76,9 +77,6 @@ class Device:
 
 		# получение ответа
 		ack_packet = connection.receive()
-
-		# отключение от устройства
-		# self.disconnect()
 
 		# неполный прием или неверная контрольная сумма
 		if ack_packet == 0: 
@@ -99,17 +97,18 @@ class Device:
 		возвращает 0 при неудаче, при успехе записывает в поле
 		и возращает FF"""
 
+		# для виртуального - просто запись поля
+		if self.type == "virtual":
+			self.address = address
+			return 0xFF
+
 		# в устройство
-		# self.connect()
 		connection.send([self.address, CHANGE_ADDR, address, 0])
 		time.sleep(0.01)
 
 		# подтверждение и его проверка
 		ack_packet = self.connection.receive()
 
-		# отключение от устройства
-		# self.disconnect()
-		
 		# неполный прием или неверная контрольная сумма
 		if ack_packet == [0]: 
 			return 0
@@ -138,3 +137,13 @@ class Device:
 
 		return self.type
 
+	def controls():
+		"""получение имени управлямого устройства"""
+
+		return self.controls
+
+
+	def priority():
+		""" получение приоритета управляющего устройства"""
+
+		return self.priority

@@ -5,8 +5,17 @@ import time, configparser
 # конфигурационный файл устройтв
 CONFIG_FILE = "cfg\\devices.cfg"
 
-# список объектов устройств
-devices = []
+# типы управляющих устройства
+CONTROL_TYPES = ["encoder", "switch", "virtual"]
+
+# список управляющих устройств 
+controllers = []
+
+# типы исполнительных устройств
+EXEC_TYPES = ["pwm", "relay"]
+
+# список исполнительных устройств
+executors = []
 
 # загрузка конфигурации
 config = configparser.RawConfigParser()
@@ -20,57 +29,54 @@ for section in config.sections():
 	
 	time.sleep(0.1)
 
-	# conn = Conn485()
-
+	# парсинг секции конфигурационного файла 
 	address = config.getint(section, 'address')
 	name = config.get(section, 'name')
 	dev_type = config.get(section, 'type')
 	init_regs = [config.getint(section, 'reg1'), config.getint(section, 'reg2')]
-	devices.append(Device(address, name, dev_type, init_regs, conn))
-	print ('Created device "%s" type "%s" with address %i' % (name, dev_type, address))
+	controls = config.get(section, 'controls')
+	priority = config.getint(section, 'priority')
 
-	# del conn
+	# определение устройства в управляющие или исполнительные
+	if dev_type in CONTROL_TYPES:
+		controllers.append(Device(address, name, dev_type, controls, priority, init_regs, conn))
+		print ('Created controller "%s" type "%s" with address %i (controls %s priority %i)' % (name, dev_type, address, controls, priority))
 
-dummy = input(">>>")
+	elif dev_type in EXEC_TYPES:
+		executors.append(Device(address, name, dev_type, controls, priority, init_regs, conn))
+		print ('Created executor "%s" type "%s" with address %i' % (name, dev_type, address))
 
-# тестирование устройств - считывание регистров
-# for device in devices:
-# 	if device.read_registers(conn):
-# 		print ("'%s' device type '%s' read: %s" % (device.get_name(), device.get_type(), device.get_registers()))
-# 	#time.sleep(0.01)
-
-# dummy = input(">>>")
-
-del conn
-time.sleep(0.1)
-
-while True:
+	else:
+		print ('Error creating "%s": incorrect device type "%s"' % (name, dev_type))	
 	
-	conn = Conn485()
 
-	brightness = 0
-	new_brightness = brightness
 
-	while brightness < 256:
+try:
 
-		if devices[0].write_registers([brightness,0], conn):
-			print ("Set to encoder", brightness)
+	while True:
+		if executors[0].read_registers(conn):
+			# print (executors[0].get_registers())
+			pass
+		else:
+			del conn
+			time.sleep(0.1)
+			conn = Conn485()
 
-		if devices[0].read_registers(conn):
-			new_brightness = devices[0].get_registers()[0]
-			print ("Read from encoder", new_brightness)
+		time.sleep(0.1)
 
-		if devices[1].write_registers([new_brightness,0], conn):
-			print ("Set to driver", new_brightness)
+		if executors[0].write_registers([50,1],conn):
+			print("on")
 
-		print ("---")
+		time.sleep(1)
 
-		time.sleep(0.05)
-		#dummy = input(">>>")
+		if executors[0].write_registers([50,0],conn):
+			print("off")
+		time.sleep(1)
+	
 
-		brightness += 10
+finally:
+	if "conn" in locals(): # проверка существования conn в локальной области видимости
+		print("Closing COM port")
+		del conn
+	print("----Execution aborted----")
 
-	del conn
-	time.sleep(1)
-
-del conn

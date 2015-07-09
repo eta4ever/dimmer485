@@ -147,3 +147,63 @@ class Device:
 		""" получение приоритета управляющего устройства"""
 
 		return self.control_priority
+
+class Timer:
+
+	def __init__(self, name, controls, priority, regs_on, regs_off, time_on, time_off):
+		"""конструктор"""
+
+		self.name = name
+		self.what_controls = controls
+		self.priority = priority
+		self.regs_on = regs_on
+		self.regs_off = regs_off
+
+		self.time_on = time.strptime(time_on, "%H:%M") # конвертация строки в struct_time по формату
+		self.time_off = time.strptime(time_off, "%H:%M") 
+
+	def check(self):
+		""" проверка времени. Если исполнитель в это время должен быть выключен,
+		возвращает 0, если включен - FF """
+
+		current = time.localtime()
+
+		current_on = list(current) # чтобы можно было изменить
+		current_on[3] = self.time_on.tm_hour
+		current_on[4] = self.time_on.tm_min
+		current_on[5] = 0 # секунды
+		current_on = time.struct_time(tuple(current_on)) # обратно в struct
+		current_on = time.mktime(current_on) # и в секунды-с-начала-эпохи
+
+		current_off = list(current) # чтобы можно было изменить
+		current_off[3] = self.time_off.tm_hour
+		current_off[4] = self.time_off.tm_min
+		current_off[5] = 0 # секунды
+		current_off = time.struct_time(tuple(current_off)) # обратно в struct
+		current_off = time.mktime(current_off) # и в секунды-с-начала-эпохи
+
+		# если время включения больше времени включения, значит, попадание
+		# на переход через сутки
+		if current_on > current_off:
+			current_off += 86400
+
+		current = time.mktime(current)
+
+		print(current_on, current, current_off)
+
+		if current in range(int(current_on), int(current_off)+1):
+			return 0xFF
+		else:
+			return 0x00
+
+
+	def get_regs_on(self):
+		return self.regs_on
+
+	def get_regs_off(self):
+		return self.regs_off
+
+	def controls(self):
+		return self.what_controls
+
+

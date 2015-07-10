@@ -43,7 +43,7 @@ class Conn485:
 
 		# режим передачи
 		self.conn.setDTR(False)
-		time.sleep(0.05)
+		time.sleep(0.01)
 
 		# передача
 		self.conn.write(packet_to_send)
@@ -60,7 +60,7 @@ class Conn485:
 		received_packet = list(self.conn.read(5))
 
 		#DEBUG
-		#print (received_packet)
+		print (received_packet)
 
 		# проверка длины пакета
 		if len(received_packet) != 5:

@@ -3,8 +3,8 @@ from comm485 import Conn485
 import time, configparser
 
 # количество попыток чтения или записи в устройство, задержка между попытками
-ATTEMPTS = 8
-ATTEMPT_DELAY = 0.11
+ATTEMPTS = 100
+ATTEMPT_DELAY = 0.1
 
 # конфигурационный файл устройтв
 CONFIG_FILE = "cfg\\devices.cfg"
@@ -66,9 +66,9 @@ for section in config.sections():
 				break
 			else:
 				print(".", end='')
-				# del conn
-				# conn = Conn485()
-				# time.sleep(ATTEMPT_DELAY)
+				del conn
+				conn = Conn485()
+				time.sleep(ATTEMPT_DELAY)
 		else:
 			print("ERROR writing initial regs to {} with addr {:d}".format(name, address))
 
@@ -126,18 +126,18 @@ try:
 
 								break
 							else:
-								# del conn
-								# conn = Conn485()
-								time.sleep(0.1)
+								del conn
+								conn = Conn485()
+								time.sleep(ATTEMPT_DELAY)
 						else:
 							print("ERROR writing {} addr {:d}".format(executors[executor_id].get_name(), executors[executor_id].get_address()))
 
 						break
 					
 					else:
-						# del conn
-						# conn = Conn485()
-						time.sleep(0.1)
+						del conn
+						conn = Conn485()
+						time.sleep(ATTEMPT_DELAY)
 				else:
 					print("ERROR reading {} addr {:d}".format(curr_controller.get_name(), curr_controller.get_address()))
 

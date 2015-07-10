@@ -3,7 +3,7 @@ from comm485 import Conn485
 import time, configparser
 
 # количество попыток чтения или записи в устройство, задержка между попытками
-ATTEMPTS = 100
+ATTEMPTS = 1
 ATTEMPT_DELAY = 0.1
 
 # конфигурационный файл устройтв

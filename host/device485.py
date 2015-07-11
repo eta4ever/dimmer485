@@ -77,7 +77,7 @@ class Device:
 		
 		# несовпадение адреса мастера или несовпадение регистров с переданными
 		elif (ack_packet[0] != MASTER) or (ack_packet[2] != registers[0]) or (ack_packet[3] != registers[1]):
-			print(ack_packet[0], MASTER, ack_packet[2], registers[0], ack_packet[3], registers[1])
+			# print(ack_packet[0], MASTER, ack_packet[2], registers[0], ack_packet[3], registers[1])
 			return 0
 
 		# успешно

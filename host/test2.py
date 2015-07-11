@@ -5,40 +5,30 @@ import time
 conn = Conn485()
 time.sleep(0.1)
 
-led1 = Device("led1","pwm")
+# led1 = Device("led1","pwm")
+# led1.init_as_hardware(60, [0,0], conn)
 
-led1.address = 60
-led1.registers = [0,0]
-
-led1.read_registers(conn)
-
-led1.write_registers([1,1],conn)
-
-led1.write_registers([255,1],conn)
-
-del conn
+enc1 = Device("enc1", "encoder")
+enc1.init_as_hardware(50, [0,0], conn)
 
 
-# dummy = input(">")
+dummy = input(">")
 
-# try:
-# 	while True:
+try:
+	while True:
 
-# 		# dummy = input(">")
-# 		# conn = Conn485()
-# 		time.sleep(0.1)
-# 		print(led1.write_registers([100,1],conn))
-# 		# del conn
-# 			# print("o")
-# 		# print (conn.receive())
-# 		# time.sleep(0.01)
-# 		# dummy = input(">")
-# 		# conn = Conn485()
-# 		time.sleep(0.1)
-# 		print(led1.write_registers([200,0],conn))
-# 		# del conn
-# 			# print ("x")
-# 		# time.sleep(0.01)
+		# time.sleep(0.1)
+		# print(led1.write_registers([100,1],conn))
 
-# finally:
-# 	del conn
+		# time.sleep(0.1)
+		# print(led1.write_registers([200,0],conn))
+
+		time.sleep(0.1)
+		print(enc1.write_registers([1,1],conn))
+
+		time.sleep(0.1)
+		print(enc1.write_registers([2,2],conn))
+
+
+finally:
+	del conn

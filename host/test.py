@@ -5,21 +5,21 @@ conn = Conn485()
 
 time.sleep(0.1)
 
-conn.send([60,20,127,0])
+conn.send([50,20,127,0])
 
 time.sleep(0.01)
 
 print (conn.receive())
 
-try:
-	while True:
+# try:
+# 	while True:
 
-		conn.send([60,20,127,0])
-		# time.sleep(0.01)
-		print (conn.receive())
-		time.sleep(0.01)
-		conn.send([60,20,127,1])
-		time.sleep(0.01)
+# 		# conn.send([60,20,127,0])
+# 		# # time.sleep(0.01)
+# 		# print (conn.receive())
+# 		# time.sleep(0.01)
+# 		# conn.send([60,20,127,1])
+# 		# time.sleep(0.01)
 
-finally:
-	del conn
+# finally:
+# 	del conn

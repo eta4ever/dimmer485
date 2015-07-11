@@ -2,9 +2,9 @@ from device485 import Device
 from comm485 import Conn485
 import time, configparser
 
-# количество попыток чтения или записи в устройство, задержка между попытками
-ATTEMPTS = 5
-ATTEMPT_DELAY = 0.1
+# # количество попыток чтения или записи в устройство, задержка между попытками
+# ATTEMPTS = 5
+# ATTEMPT_DELAY = 0.1
 
 # конфигурационный файл устройтв
 CONFIG_FILE = "cfg\\devices.cfg"
@@ -24,13 +24,14 @@ controllers = []
 # список исполнительных устройств
 executors = []
 
+# создание подключения
+conn = Conn485()
+
 # создание объектов устройств по конфигурационному файлу
 config = configparser.RawConfigParser()
 config.read(CONFIG_FILE)
 for section in config.sections():
 	
-	time.sleep(0.1)
-
 	# выбор общих параметров
 	name = config.get(section, 'name')
 	dev_type = config.get(section, 'type')
@@ -54,25 +55,13 @@ for section in config.sections():
 	# инициализация железного устройства
 	if dev_type in HARDWARE_TYPES:
 		
-		# создание подключения
-		conn = Conn485()
-
 		address = config.getint(section, 'address')
 		init_regs = [config.getint(section, 'reg1'), config.getint(section, 'reg2')]
 		
-		for attempt in range(0, ATTEMPTS):
-			if device.init_as_hardware(address, init_regs, conn):
-				print("{} addr {:d} ok".format(name, address))
-				break
-			else:
-				print(".", end='')
-				del conn
-				conn = Conn485()
-				time.sleep(ATTEMPT_DELAY)
+		if device.init_as_hardware(address, init_regs, conn):
+			print("{} addr {:d} ok".format(name, address))
 		else:
 			print("ERROR writing initial regs to {} with addr {:d}".format(name, address))
-
-		del conn
 
 	# инициализация таймера
 	if dev_type == "timer":
@@ -101,8 +90,6 @@ try:
 
 	while True:
 
-		conn = Conn485()
-
 		for executor_id in range(0,len(executors)):
 
 			if len(executors_controlled_by[executor_id]) == 1:
@@ -111,96 +98,21 @@ try:
 				curr_controller = controllers[executors_controlled_by[executor_id][0]]
 
 				# чтение регистров управляющего
-				for attempt_r in range(0,ATTEMPTS):
-					if curr_controller.read_registers(conn):
-						regs_to_executor = curr_controller.get_registers()
+				if curr_controller.read_registers(conn):
+					regs_to_executor = curr_controller.get_registers()
+					print("o")
 
-						print("+", end="")
-
-						# при удачном чтении - запись регистров исполнителя
-						# time.sleep(0.1)
-						for attempt_w in range(0, ATTEMPTS):
-							if executors[executor_id].write_registers(regs_to_executor,conn):
-
-								print("!")
-
-								break
-							else:
-								del conn
-								conn = Conn485()
-								time.sleep(ATTEMPT_DELAY)
-						else:
-							print("ERROR writing {} addr {:d}".format(executors[executor_id].get_name(), executors[executor_id].get_address()))
-
-						break
-					
+					# time.sleep(0.1)
+					# при удачном чтении - запись регистров исполнителя
+					if executors[executor_id].write_registers(regs_to_executor,conn):
+						print("x")
+						pass
 					else:
-						del conn
-						conn = Conn485()
-						time.sleep(ATTEMPT_DELAY)
+						print("ERROR writing {} addr {:d}".format(executors[executor_id].get_name(), executors[executor_id].get_address()))
 				else:
 					print("ERROR reading {} addr {:d}".format(curr_controller.get_name(), curr_controller.get_address()))
 
-
-			time.sleep(1)
-			del conn
-
-
-	# while True:
-		
-		# for executors in 
-
-
-
-
-		# for controller in controllers:
-
-		# 	# если не читаются регистры управляющего устройства, дергать соединение
-		# 	while not (controller.read_registers(conn)):
-		# 		del conn
-		# 		time.sleep(0.1)
-		# 		conn = Conn485()
-		# 		time.sleep(0.1)
-
-		# 	print ("Read from %s: %i, %i" %(controller.get_name(), controller.get_registers()[0],
-		# 		controller.get_registers()[1]))
-
-		# 	# если не записываются регистры исполнительного устройства, дергать соединение
-		# 	while not(executors[executors_id_by_name[controller.controls()]].write_registers(
-		# 		controller.get_registers(), conn)):
-		# 		del conn
-		# 		conn = Conn485()
-		# 		time.sleep(0.1)
-
-		# 	print ("Wrote %i, %i" %(controller.get_registers()[0], controller.get_registers()[1]))
-
-		# 	time.sleep(1)
-
-		
-
-
-
-	# 	if timers[0].check():
-			
-	# 		curr_regs = timers[0].get_regs_on()
-
-	# 	else:
-
-	# 		curr_regs = timers[0].get_regs_off()
-
-	# 	curr_executor = executors[executors_id_by_name[timers[0].controls()]]
-
-	# 	while not (curr_executor.read_registers(conn)):
-	# 		del conn
-	# 		time.sleep(0.1)
-	# 		conn = Conn485()
-	# 		time.sleep(0.1)
-			
-	# 	if curr_executor.get_registers() != curr_regs:
-	# 		curr_executor.write_registers(curr_regs, conn)
-
-	# 	time.sleep(1)
-	# pass
+		time.sleep(1)		
 
 finally:
 	if "conn" in locals(): # проверка существования conn в локальной области видимости

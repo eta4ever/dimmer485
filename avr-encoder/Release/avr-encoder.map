@@ -125,7 +125,7 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000      0x364
+.text           0x00000000      0x35c
  *(.vectors)
  .vectors       0x00000000       0x68 e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm328p.o
                 0x00000000                __vector_default
@@ -230,64 +230,64 @@ END GROUP
                 0x000001de       0x1e ./main.o
                 0x000001de                checksum
  .text.receive_packet
-                0x000001fc       0xa4 ./main.o
+                0x000001fc       0xa0 ./main.o
                 0x000001fc                receive_packet
  .text.send_packet
-                0x000002a0       0x46 ./main.o
-                0x000002a0                send_packet
+                0x0000029c       0x46 ./main.o
+                0x0000029c                send_packet
  .text.send_registers
-                0x000002e6       0x20 ./main.o
-                0x000002e6                send_registers
+                0x000002e2       0x20 ./main.o
+                0x000002e2                send_registers
  .text.process_packet
-                0x00000306       0x32 ./main.o
-                0x00000306                process_packet
+                0x00000302       0x32 ./main.o
+                0x00000302                process_packet
  .text.startup.main
-                0x00000338       0x28 ./main.o
-                0x00000338                main
+                0x00000334       0x24 ./main.o
+                0x00000334                main
  .text.libgcc.mul
-                0x00000360        0x0 e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_exit.o)
+                0x00000358        0x0 e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_exit.o)
  .text.libgcc.div
-                0x00000360        0x0 e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_exit.o)
- .text.libgcc   0x00000360        0x0 e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_exit.o)
+                0x00000358        0x0 e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_exit.o)
+ .text.libgcc   0x00000358        0x0 e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_exit.o)
  .text.libgcc.prologue
-                0x00000360        0x0 e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_exit.o)
+                0x00000358        0x0 e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_exit.o)
  .text.libgcc.builtins
-                0x00000360        0x0 e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_exit.o)
+                0x00000358        0x0 e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_exit.o)
  .text.libgcc.fmul
-                0x00000360        0x0 e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_exit.o)
+                0x00000358        0x0 e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_exit.o)
  .text.libgcc.fixed
-                0x00000360        0x0 e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_exit.o)
+                0x00000358        0x0 e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_exit.o)
  .text.libgcc.mul
-                0x00000360        0x0 e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_copy_data.o)
+                0x00000358        0x0 e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_copy_data.o)
  .text.libgcc.div
-                0x00000360        0x0 e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_copy_data.o)
- .text.libgcc   0x00000360        0x0 e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_copy_data.o)
+                0x00000358        0x0 e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_copy_data.o)
+ .text.libgcc   0x00000358        0x0 e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_copy_data.o)
  .text.libgcc.prologue
-                0x00000360        0x0 e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_copy_data.o)
+                0x00000358        0x0 e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_copy_data.o)
  .text.libgcc.builtins
-                0x00000360        0x0 e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_copy_data.o)
+                0x00000358        0x0 e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_copy_data.o)
  .text.libgcc.fmul
-                0x00000360        0x0 e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_copy_data.o)
+                0x00000358        0x0 e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_copy_data.o)
  .text.libgcc.fixed
-                0x00000360        0x0 e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_copy_data.o)
+                0x00000358        0x0 e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_copy_data.o)
  .text.libgcc.mul
-                0x00000360        0x0 e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_clear_bss.o)
+                0x00000358        0x0 e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_clear_bss.o)
  .text.libgcc.div
-                0x00000360        0x0 e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_clear_bss.o)
- .text.libgcc   0x00000360        0x0 e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_clear_bss.o)
+                0x00000358        0x0 e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_clear_bss.o)
+ .text.libgcc   0x00000358        0x0 e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_clear_bss.o)
  .text.libgcc.prologue
-                0x00000360        0x0 e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_clear_bss.o)
+                0x00000358        0x0 e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_clear_bss.o)
  .text.libgcc.builtins
-                0x00000360        0x0 e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_clear_bss.o)
+                0x00000358        0x0 e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_clear_bss.o)
  .text.libgcc.fmul
-                0x00000360        0x0 e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_clear_bss.o)
+                0x00000358        0x0 e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_clear_bss.o)
  .text.libgcc.fixed
-                0x00000360        0x0 e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_clear_bss.o)
-                0x00000360                . = ALIGN (0x2)
+                0x00000358        0x0 e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_clear_bss.o)
+                0x00000358                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00000360        0x0 e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_exit.o)
-                0x00000360                _exit
-                0x00000360                exit
+ .fini9         0x00000358        0x0 e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_exit.o)
+                0x00000358                _exit
+                0x00000358                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -306,11 +306,11 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00000360        0x4 e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_exit.o)
+ .fini0         0x00000358        0x4 e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x00000364                _etext = .
+                0x0000035c                _etext = .
 
-.data           0x00800100        0x2 load address 0x00000364
+.data           0x00800100        0x2 load address 0x0000035c
                 0x00800100                PROVIDE (__data_start, .)
  *(.data)
  .data          0x00800100        0x0 e:/avr/toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm328p.o
@@ -354,8 +354,8 @@ END GROUP
  COMMON         0x00800107        0x5 ./main.o
                 0x00800107                packet
                 0x0080010c                PROVIDE (__bss_end, .)
-                0x00000364                __data_load_start = LOADADDR (.data)
-                0x00000366                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x0000035c                __data_load_start = LOADADDR (.data)
+                0x0000035e                __data_load_end = (__data_load_start + SIZEOF (.data))
 
 .noinit         0x0080010c        0x0
                 0x0080010c                PROVIDE (__noinit_start, .)

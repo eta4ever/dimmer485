@@ -3,7 +3,7 @@ from comm485 import Conn485
 import time, configparser
 
 # количество попыток чтения или записи в устройство, задержка между попытками
-ATTEMPTS = 1
+ATTEMPTS = 5
 ATTEMPT_DELAY = 0.1
 
 # конфигурационный файл устройтв
@@ -118,7 +118,7 @@ try:
 						print("+", end="")
 
 						# при удачном чтении - запись регистров исполнителя
-						time.sleep(0.1)
+						# time.sleep(0.1)
 						for attempt_w in range(0, ATTEMPTS):
 							if executors[executor_id].write_registers(regs_to_executor,conn):
 

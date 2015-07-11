@@ -20,6 +20,7 @@ class Device:
 	def init_as_hardware(self, address, init_regs, connection):
 		""" инициализация "железного" или виртуального устройства"""
 		self.address = address
+		self.registers = [0,0]
 
 		if self.write_registers(init_regs, connection):
 			return 0xFF
@@ -61,21 +62,22 @@ class Device:
 			return 0xFF
 
 		# в устройство
-
-		self.registers = [0,0]
-
 		connection.send([self.address, WRITE_REG, registers[0], registers[1]])
-		time.sleep(0.01)
+		# time.sleep(0.01)
 
 		# подтверждение и его проверка
 		ack_packet = connection.receive()
 
+		# print(ack_packet)
+
 		# неполный прием или неверная контрольная сумма
 		if ack_packet == [0]: 
+			# print(1)
 			return 0
 		
 		# несовпадение адреса мастера или несовпадение регистров с переданными
 		elif (ack_packet[0] != MASTER) or (ack_packet[2] != registers[0]) or (ack_packet[3] != registers[1]):
+			print(ack_packet[0], MASTER, ack_packet[2], registers[0], ack_packet[3], registers[1])
 			return 0
 
 		# успешно
@@ -102,7 +104,7 @@ class Device:
 
 		# запрос
 		connection.send([self.address, READ_REG,0,0])
-		time.sleep(0.01)
+		# time.sleep(0.01)
 
 		# получение ответа
 		ack_packet = connection.receive()

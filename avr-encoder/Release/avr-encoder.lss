@@ -239,8 +239,8 @@ Disassembly of section .text:
 
 000001fc <receive_packet>:
  1fc:	5a 98       	cbi	0x0b, 2	; 11
- 1fe:	8f e0       	ldi	r24, 0x0F	; 15
- 200:	97 e2       	ldi	r25, 0x27	; 39
+ 1fe:	8f ec       	ldi	r24, 0xCF	; 207
+ 200:	97 e0       	ldi	r25, 0x07	; 7
  202:	01 97       	sbiw	r24, 0x01	; 1
  204:	f1 f7       	brne	.-4      	; 0x202 <receive_packet+0x6>
  206:	00 c0       	rjmp	.+0      	; 0x208 <receive_packet+0xc>
@@ -304,8 +304,8 @@ Disassembly of section .text:
  2a0:	0e 94 ef 00 	call	0x1de	; 0x1de <checksum>
  2a4:	80 93 0b 01 	sts	0x010B, r24
  2a8:	5a 9a       	sbi	0x0b, 2	; 11
- 2aa:	8f e0       	ldi	r24, 0x0F	; 15
- 2ac:	97 e2       	ldi	r25, 0x27	; 39
+ 2aa:	8f ec       	ldi	r24, 0xCF	; 207
+ 2ac:	97 e0       	ldi	r25, 0x07	; 7
  2ae:	01 97       	sbiw	r24, 0x01	; 1
  2b0:	f1 f7       	brne	.-4      	; 0x2ae <send_packet+0xe>
  2b2:	00 c0       	rjmp	.+0      	; 0x2b4 <send_packet+0x14>
@@ -362,8 +362,8 @@ Disassembly of section .text:
 00000338 <main>:
  338:	0e 94 53 00 	call	0xa6	; 0xa6 <setup>
  33c:	0e 94 fe 00 	call	0x1fc	; 0x1fc <receive_packet>
- 340:	ef e1       	ldi	r30, 0x1F	; 31
- 342:	fe e4       	ldi	r31, 0x4E	; 78
+ 340:	ef ec       	ldi	r30, 0xCF	; 207
+ 342:	f7 e0       	ldi	r31, 0x07	; 7
  344:	31 97       	sbiw	r30, 0x01	; 1
  346:	f1 f7       	brne	.-4      	; 0x344 <main+0xc>
  348:	00 c0       	rjmp	.+0      	; 0x34a <main+0x12>

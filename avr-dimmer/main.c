@@ -96,7 +96,7 @@ unsigned char checksum(){
 unsigned char receive_packet(void){
 
 	PORTD &= 0b11111011; // включение max485 на прием
-	_delay_ms(5); // задержка на установление режима
+	_delay_us(1); // задержка на установление режима
 	UCSR0B=(1<<RXEN0); // разрешение приема по UART
 
 	// получение первого байта пакета
@@ -149,7 +149,7 @@ void send_packet(void){
 	packet[4] = packet_checksum;
 
 	PORTD |= 0b00000100; // включение max485 на передачу
-	_delay_ms(5); // задержка на установление режима
+	_delay_ms(1); // задержка на установление режима
 	UCSR0B=(1<<TXEN0); // разрешение передачи
 
 	for (unsigned char counter=0; counter<5; counter++)
@@ -160,7 +160,6 @@ void send_packet(void){
 		// отправка байта
   		UDR0 = packet[counter];
  	}
-
 	UCSR0B = 0; // запрет UART
 }
 
@@ -209,7 +208,7 @@ int main (void){
 	while(1){
 
 		rx_result = receive_packet();
-		_delay_ms(10);
+		_delay_us(1);
 
 		if (rx_result) {
 			process_packet();
@@ -222,7 +221,7 @@ int main (void){
 				TCCR2A = 0b00000011; // если в data2 0, шим отключается
 			}
 		}
-		_delay_ms(10);
+		_delay_ms(1);
 	}
 
 	return 0;

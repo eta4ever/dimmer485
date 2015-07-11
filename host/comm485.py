@@ -42,8 +42,8 @@ class Conn485:
 		packet_to_send.append(packet_checksum)
 
 		# режим передачи
-		self.conn.setDTR(False)
-		time.sleep(0.01)
+		# self.conn.setDTR(False)
+		# time.sleep(0.01)
 
 		# передача
 		self.conn.write(packet_to_send)
@@ -53,8 +53,8 @@ class Conn485:
 		контрольной суммы или недостаточной длине пакета """
 
 		# режим приема
-		self.conn.setDTR(True)
-		time.sleep(0.01)
+		# self.conn.setDTR(True)
+		# time.sleep(0.01)
 		
 		# прием
 		received_packet = list(self.conn.read(5))

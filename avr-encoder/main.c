@@ -168,7 +168,7 @@ unsigned char checksum(){
 unsigned char receive_packet(void){
 
 	PORTD &= 0b11111011; // включение max485 на прием
-	_delay_ms(5); // задержка на установление режима
+	_delay_ms(1); // задержка на установление режима
 	UCSR0B=(1<<RXEN0); // разрешение приема по UART
 
 	// получение первого байта пакета
@@ -225,7 +225,7 @@ void send_packet(void){
 	packet[4] = packet_checksum;
 
 	PORTD |= 0b00000100; // включение max485 на передачу
-	_delay_ms(5); // задержка на установление режима
+	_delay_ms(1); // задержка на установление режима
 	UCSR0B=(1<<TXEN0); // разрешение передачи
 
 	// запрет опроса энкодера
@@ -289,7 +289,7 @@ int main (void){
 	while(1){
 
 		rx_result = receive_packet();
-		_delay_ms(10);
+		_delay_ms(1);
 
 		if (rx_result) {
 			process_packet();

@@ -3,13 +3,13 @@ avr-dimmer.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .data         00000002  00800100  0000027c  00000310  2**0
+  0 .data         00000002  00800100  00000274  00000308  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  1 .text         0000027c  00000000  00000000  00000094  2**1
+  1 .text         00000274  00000000  00000000  00000094  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  2 .bss          00000008  00800102  00800102  00000312  2**0
+  2 .bss          00000008  00800102  00800102  0000030a  2**0
                   ALLOC
-  3 .comment      00000030  00000000  00000000  00000312  2**0
+  3 .comment      00000030  00000000  00000000  0000030a  2**0
                   CONTENTS, READONLY
 
 Disassembly of section .text:
@@ -54,7 +54,7 @@ Disassembly of section .text:
   74:	11 e0       	ldi	r17, 0x01	; 1
   76:	a0 e0       	ldi	r26, 0x00	; 0
   78:	b1 e0       	ldi	r27, 0x01	; 1
-  7a:	ec e7       	ldi	r30, 0x7C	; 124
+  7a:	e4 e7       	ldi	r30, 0x74	; 116
   7c:	f2 e0       	ldi	r31, 0x02	; 2
   7e:	02 c0       	rjmp	.+4      	; 0x84 <__do_copy_data+0x10>
   80:	05 90       	lpm	r0, Z+
@@ -76,8 +76,8 @@ Disassembly of section .text:
   94:	aa 30       	cpi	r26, 0x0A	; 10
   96:	b2 07       	cpc	r27, r18
   98:	e1 f7       	brne	.-8      	; 0x92 <.do_clear_bss_loop>
-  9a:	0e 94 18 01 	call	0x230	; 0x230 <main>
-  9e:	0c 94 3c 01 	jmp	0x278	; 0x278 <_exit>
+  9a:	0e 94 16 01 	call	0x22c	; 0x22c <main>
+  9e:	0c 94 38 01 	jmp	0x270	; 0x270 <_exit>
 
 000000a2 <__bad_interrupt>:
   a2:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
@@ -130,151 +130,147 @@ Disassembly of section .text:
 
 0000010c <receive_packet>:
  10c:	5a 98       	cbi	0x0b, 2	; 11
- 10e:	8f e0       	ldi	r24, 0x0F	; 15
- 110:	97 e2       	ldi	r25, 0x27	; 39
- 112:	01 97       	sbiw	r24, 0x01	; 1
- 114:	f1 f7       	brne	.-4      	; 0x112 <receive_packet+0x6>
- 116:	00 c0       	rjmp	.+0      	; 0x118 <receive_packet+0xc>
- 118:	00 00       	nop
- 11a:	80 e1       	ldi	r24, 0x10	; 16
- 11c:	80 93 c1 00 	sts	0x00C1, r24
- 120:	80 91 c0 00 	lds	r24, 0x00C0
- 124:	87 ff       	sbrs	r24, 7
- 126:	fc cf       	rjmp	.-8      	; 0x120 <receive_packet+0x14>
- 128:	80 91 c6 00 	lds	r24, 0x00C6
- 12c:	80 93 05 01 	sts	0x0105, r24
- 130:	10 92 02 01 	sts	0x0102, r1
- 134:	16 bc       	out	0x26, r1	; 38
- 136:	85 e0       	ldi	r24, 0x05	; 5
- 138:	85 bd       	out	0x25, r24	; 37
- 13a:	20 91 02 01 	lds	r18, 0x0102
- 13e:	81 e0       	ldi	r24, 0x01	; 1
- 140:	90 91 c0 00 	lds	r25, 0x00C0
- 144:	97 fd       	sbrc	r25, 7
- 146:	0f c0       	rjmp	.+30     	; 0x166 <receive_packet+0x5a>
- 148:	21 30       	cpi	r18, 0x01	; 1
- 14a:	d1 f7       	brne	.-12     	; 0x140 <receive_packet+0x34>
- 14c:	15 bc       	out	0x25, r1	; 37
- 14e:	8f ef       	ldi	r24, 0xFF	; 255
- 150:	80 93 05 01 	sts	0x0105, r24
- 154:	80 93 06 01 	sts	0x0106, r24
- 158:	80 93 07 01 	sts	0x0107, r24
- 15c:	80 93 08 01 	sts	0x0108, r24
- 160:	80 93 09 01 	sts	0x0109, r24
- 164:	1c c0       	rjmp	.+56     	; 0x19e <receive_packet+0x92>
- 166:	90 91 c6 00 	lds	r25, 0x00C6
- 16a:	e8 2f       	mov	r30, r24
- 16c:	f0 e0       	ldi	r31, 0x00	; 0
- 16e:	eb 5f       	subi	r30, 0xFB	; 251
- 170:	fe 4f       	sbci	r31, 0xFE	; 254
- 172:	90 83       	st	Z, r25
- 174:	8f 5f       	subi	r24, 0xFF	; 255
- 176:	85 30       	cpi	r24, 0x05	; 5
- 178:	19 f7       	brne	.-58     	; 0x140 <receive_packet+0x34>
- 17a:	15 bc       	out	0x25, r1	; 37
- 17c:	10 92 c1 00 	sts	0x00C1, r1
- 180:	0e 94 77 00 	call	0xee	; 0xee <checksum>
- 184:	90 91 09 01 	lds	r25, 0x0109
- 188:	98 13       	cpse	r25, r24
- 18a:	09 c0       	rjmp	.+18     	; 0x19e <receive_packet+0x92>
- 18c:	81 e0       	ldi	r24, 0x01	; 1
- 18e:	20 91 05 01 	lds	r18, 0x0105
- 192:	90 91 00 01 	lds	r25, 0x0100
- 196:	29 13       	cpse	r18, r25
- 198:	80 e0       	ldi	r24, 0x00	; 0
- 19a:	81 95       	neg	r24
+ 10e:	82 e0       	ldi	r24, 0x02	; 2
+ 110:	8a 95       	dec	r24
+ 112:	f1 f7       	brne	.-4      	; 0x110 <receive_packet+0x4>
+ 114:	00 c0       	rjmp	.+0      	; 0x116 <receive_packet+0xa>
+ 116:	80 e1       	ldi	r24, 0x10	; 16
+ 118:	80 93 c1 00 	sts	0x00C1, r24
+ 11c:	80 91 c0 00 	lds	r24, 0x00C0
+ 120:	87 ff       	sbrs	r24, 7
+ 122:	fc cf       	rjmp	.-8      	; 0x11c <receive_packet+0x10>
+ 124:	80 91 c6 00 	lds	r24, 0x00C6
+ 128:	80 93 05 01 	sts	0x0105, r24
+ 12c:	10 92 02 01 	sts	0x0102, r1
+ 130:	16 bc       	out	0x26, r1	; 38
+ 132:	85 e0       	ldi	r24, 0x05	; 5
+ 134:	85 bd       	out	0x25, r24	; 37
+ 136:	20 91 02 01 	lds	r18, 0x0102
+ 13a:	81 e0       	ldi	r24, 0x01	; 1
+ 13c:	90 91 c0 00 	lds	r25, 0x00C0
+ 140:	97 fd       	sbrc	r25, 7
+ 142:	0f c0       	rjmp	.+30     	; 0x162 <receive_packet+0x56>
+ 144:	21 30       	cpi	r18, 0x01	; 1
+ 146:	d1 f7       	brne	.-12     	; 0x13c <receive_packet+0x30>
+ 148:	15 bc       	out	0x25, r1	; 37
+ 14a:	8f ef       	ldi	r24, 0xFF	; 255
+ 14c:	80 93 05 01 	sts	0x0105, r24
+ 150:	80 93 06 01 	sts	0x0106, r24
+ 154:	80 93 07 01 	sts	0x0107, r24
+ 158:	80 93 08 01 	sts	0x0108, r24
+ 15c:	80 93 09 01 	sts	0x0109, r24
+ 160:	1c c0       	rjmp	.+56     	; 0x19a <receive_packet+0x8e>
+ 162:	90 91 c6 00 	lds	r25, 0x00C6
+ 166:	e8 2f       	mov	r30, r24
+ 168:	f0 e0       	ldi	r31, 0x00	; 0
+ 16a:	eb 5f       	subi	r30, 0xFB	; 251
+ 16c:	fe 4f       	sbci	r31, 0xFE	; 254
+ 16e:	90 83       	st	Z, r25
+ 170:	8f 5f       	subi	r24, 0xFF	; 255
+ 172:	85 30       	cpi	r24, 0x05	; 5
+ 174:	19 f7       	brne	.-58     	; 0x13c <receive_packet+0x30>
+ 176:	15 bc       	out	0x25, r1	; 37
+ 178:	10 92 c1 00 	sts	0x00C1, r1
+ 17c:	0e 94 77 00 	call	0xee	; 0xee <checksum>
+ 180:	90 91 09 01 	lds	r25, 0x0109
+ 184:	98 13       	cpse	r25, r24
+ 186:	09 c0       	rjmp	.+18     	; 0x19a <receive_packet+0x8e>
+ 188:	81 e0       	ldi	r24, 0x01	; 1
+ 18a:	20 91 05 01 	lds	r18, 0x0105
+ 18e:	90 91 00 01 	lds	r25, 0x0100
+ 192:	29 13       	cpse	r18, r25
+ 194:	80 e0       	ldi	r24, 0x00	; 0
+ 196:	81 95       	neg	r24
+ 198:	08 95       	ret
+ 19a:	80 e0       	ldi	r24, 0x00	; 0
  19c:	08 95       	ret
- 19e:	80 e0       	ldi	r24, 0x00	; 0
- 1a0:	08 95       	ret
 
-000001a2 <send_packet>:
- 1a2:	0e 94 77 00 	call	0xee	; 0xee <checksum>
- 1a6:	80 93 09 01 	sts	0x0109, r24
- 1aa:	5a 9a       	sbi	0x0b, 2	; 11
- 1ac:	8f e0       	ldi	r24, 0x0F	; 15
- 1ae:	97 e2       	ldi	r25, 0x27	; 39
- 1b0:	01 97       	sbiw	r24, 0x01	; 1
- 1b2:	f1 f7       	brne	.-4      	; 0x1b0 <send_packet+0xe>
- 1b4:	00 c0       	rjmp	.+0      	; 0x1b6 <send_packet+0x14>
- 1b6:	00 00       	nop
- 1b8:	88 e0       	ldi	r24, 0x08	; 8
- 1ba:	80 93 c1 00 	sts	0x00C1, r24
- 1be:	e5 e0       	ldi	r30, 0x05	; 5
- 1c0:	f1 e0       	ldi	r31, 0x01	; 1
- 1c2:	80 91 c0 00 	lds	r24, 0x00C0
- 1c6:	85 ff       	sbrs	r24, 5
- 1c8:	fc cf       	rjmp	.-8      	; 0x1c2 <send_packet+0x20>
- 1ca:	81 91       	ld	r24, Z+
- 1cc:	80 93 c6 00 	sts	0x00C6, r24
- 1d0:	91 e0       	ldi	r25, 0x01	; 1
- 1d2:	ea 30       	cpi	r30, 0x0A	; 10
- 1d4:	f9 07       	cpc	r31, r25
- 1d6:	a9 f7       	brne	.-22     	; 0x1c2 <send_packet+0x20>
- 1d8:	10 92 c1 00 	sts	0x00C1, r1
- 1dc:	08 95       	ret
+0000019e <send_packet>:
+ 19e:	0e 94 77 00 	call	0xee	; 0xee <checksum>
+ 1a2:	80 93 09 01 	sts	0x0109, r24
+ 1a6:	5a 9a       	sbi	0x0b, 2	; 11
+ 1a8:	8f ec       	ldi	r24, 0xCF	; 207
+ 1aa:	97 e0       	ldi	r25, 0x07	; 7
+ 1ac:	01 97       	sbiw	r24, 0x01	; 1
+ 1ae:	f1 f7       	brne	.-4      	; 0x1ac <send_packet+0xe>
+ 1b0:	00 c0       	rjmp	.+0      	; 0x1b2 <send_packet+0x14>
+ 1b2:	00 00       	nop
+ 1b4:	88 e0       	ldi	r24, 0x08	; 8
+ 1b6:	80 93 c1 00 	sts	0x00C1, r24
+ 1ba:	e5 e0       	ldi	r30, 0x05	; 5
+ 1bc:	f1 e0       	ldi	r31, 0x01	; 1
+ 1be:	80 91 c0 00 	lds	r24, 0x00C0
+ 1c2:	85 ff       	sbrs	r24, 5
+ 1c4:	fc cf       	rjmp	.-8      	; 0x1be <send_packet+0x20>
+ 1c6:	81 91       	ld	r24, Z+
+ 1c8:	80 93 c6 00 	sts	0x00C6, r24
+ 1cc:	91 e0       	ldi	r25, 0x01	; 1
+ 1ce:	ea 30       	cpi	r30, 0x0A	; 10
+ 1d0:	f9 07       	cpc	r31, r25
+ 1d2:	a9 f7       	brne	.-22     	; 0x1be <send_packet+0x20>
+ 1d4:	10 92 c1 00 	sts	0x00C1, r1
+ 1d8:	08 95       	ret
 
-000001de <send_registers>:
- 1de:	81 e0       	ldi	r24, 0x01	; 1
- 1e0:	80 93 05 01 	sts	0x0105, r24
- 1e4:	82 e3       	ldi	r24, 0x32	; 50
- 1e6:	80 93 06 01 	sts	0x0106, r24
- 1ea:	80 91 03 01 	lds	r24, 0x0103
- 1ee:	80 93 07 01 	sts	0x0107, r24
- 1f2:	80 91 04 01 	lds	r24, 0x0104
- 1f6:	80 93 08 01 	sts	0x0108, r24
- 1fa:	0c 94 d1 00 	jmp	0x1a2	; 0x1a2 <send_packet>
+000001da <send_registers>:
+ 1da:	81 e0       	ldi	r24, 0x01	; 1
+ 1dc:	80 93 05 01 	sts	0x0105, r24
+ 1e0:	82 e3       	ldi	r24, 0x32	; 50
+ 1e2:	80 93 06 01 	sts	0x0106, r24
+ 1e6:	80 91 03 01 	lds	r24, 0x0103
+ 1ea:	80 93 07 01 	sts	0x0107, r24
+ 1ee:	80 91 04 01 	lds	r24, 0x0104
+ 1f2:	80 93 08 01 	sts	0x0108, r24
+ 1f6:	0c 94 cf 00 	jmp	0x19e	; 0x19e <send_packet>
 
-000001fe <process_packet>:
- 1fe:	80 91 06 01 	lds	r24, 0x0106
- 202:	84 31       	cpi	r24, 0x14	; 20
- 204:	29 f0       	breq	.+10     	; 0x210 <process_packet+0x12>
- 206:	8e 31       	cpi	r24, 0x1E	; 30
- 208:	61 f0       	breq	.+24     	; 0x222 <process_packet+0x24>
- 20a:	8a 30       	cpi	r24, 0x0A	; 10
- 20c:	81 f4       	brne	.+32     	; 0x22e <process_packet+0x30>
- 20e:	0d c0       	rjmp	.+26     	; 0x22a <process_packet+0x2c>
- 210:	80 91 07 01 	lds	r24, 0x0107
- 214:	80 93 03 01 	sts	0x0103, r24
- 218:	80 91 08 01 	lds	r24, 0x0108
- 21c:	80 93 04 01 	sts	0x0104, r24
- 220:	04 c0       	rjmp	.+8      	; 0x22a <process_packet+0x2c>
- 222:	80 91 07 01 	lds	r24, 0x0107
- 226:	80 93 00 01 	sts	0x0100, r24
- 22a:	0c 94 ef 00 	jmp	0x1de	; 0x1de <send_registers>
- 22e:	08 95       	ret
+000001fa <process_packet>:
+ 1fa:	80 91 06 01 	lds	r24, 0x0106
+ 1fe:	84 31       	cpi	r24, 0x14	; 20
+ 200:	29 f0       	breq	.+10     	; 0x20c <process_packet+0x12>
+ 202:	8e 31       	cpi	r24, 0x1E	; 30
+ 204:	61 f0       	breq	.+24     	; 0x21e <process_packet+0x24>
+ 206:	8a 30       	cpi	r24, 0x0A	; 10
+ 208:	81 f4       	brne	.+32     	; 0x22a <process_packet+0x30>
+ 20a:	0d c0       	rjmp	.+26     	; 0x226 <process_packet+0x2c>
+ 20c:	80 91 07 01 	lds	r24, 0x0107
+ 210:	80 93 03 01 	sts	0x0103, r24
+ 214:	80 91 08 01 	lds	r24, 0x0108
+ 218:	80 93 04 01 	sts	0x0104, r24
+ 21c:	04 c0       	rjmp	.+8      	; 0x226 <process_packet+0x2c>
+ 21e:	80 91 07 01 	lds	r24, 0x0107
+ 222:	80 93 00 01 	sts	0x0100, r24
+ 226:	0c 94 ed 00 	jmp	0x1da	; 0x1da <send_registers>
+ 22a:	08 95       	ret
 
-00000230 <main>:
- 230:	0e 94 53 00 	call	0xa6	; 0xa6 <setup>
- 234:	c3 e0       	ldi	r28, 0x03	; 3
- 236:	d3 e8       	ldi	r29, 0x83	; 131
- 238:	0e 94 86 00 	call	0x10c	; 0x10c <receive_packet>
- 23c:	ef e1       	ldi	r30, 0x1F	; 31
- 23e:	fe e4       	ldi	r31, 0x4E	; 78
- 240:	31 97       	sbiw	r30, 0x01	; 1
- 242:	f1 f7       	brne	.-4      	; 0x240 <main+0x10>
- 244:	00 c0       	rjmp	.+0      	; 0x246 <main+0x16>
- 246:	00 00       	nop
- 248:	88 23       	and	r24, r24
- 24a:	79 f0       	breq	.+30     	; 0x26a <main+0x3a>
- 24c:	0e 94 ff 00 	call	0x1fe	; 0x1fe <process_packet>
- 250:	80 91 04 01 	lds	r24, 0x0104
- 254:	88 23       	and	r24, r24
- 256:	39 f0       	breq	.+14     	; 0x266 <main+0x36>
- 258:	d0 93 b0 00 	sts	0x00B0, r29
- 25c:	80 91 03 01 	lds	r24, 0x0103
- 260:	80 93 b3 00 	sts	0x00B3, r24
- 264:	02 c0       	rjmp	.+4      	; 0x26a <main+0x3a>
- 266:	c0 93 b0 00 	sts	0x00B0, r28
- 26a:	8f e1       	ldi	r24, 0x1F	; 31
- 26c:	9e e4       	ldi	r25, 0x4E	; 78
- 26e:	01 97       	sbiw	r24, 0x01	; 1
- 270:	f1 f7       	brne	.-4      	; 0x26e <main+0x3e>
- 272:	00 c0       	rjmp	.+0      	; 0x274 <main+0x44>
- 274:	00 00       	nop
- 276:	e0 cf       	rjmp	.-64     	; 0x238 <main+0x8>
+0000022c <main>:
+ 22c:	0e 94 53 00 	call	0xa6	; 0xa6 <setup>
+ 230:	c3 e0       	ldi	r28, 0x03	; 3
+ 232:	d3 e8       	ldi	r29, 0x83	; 131
+ 234:	0e 94 86 00 	call	0x10c	; 0x10c <receive_packet>
+ 238:	92 e0       	ldi	r25, 0x02	; 2
+ 23a:	9a 95       	dec	r25
+ 23c:	f1 f7       	brne	.-4      	; 0x23a <main+0xe>
+ 23e:	00 c0       	rjmp	.+0      	; 0x240 <main+0x14>
+ 240:	88 23       	and	r24, r24
+ 242:	79 f0       	breq	.+30     	; 0x262 <main+0x36>
+ 244:	0e 94 fd 00 	call	0x1fa	; 0x1fa <process_packet>
+ 248:	80 91 04 01 	lds	r24, 0x0104
+ 24c:	88 23       	and	r24, r24
+ 24e:	39 f0       	breq	.+14     	; 0x25e <main+0x32>
+ 250:	d0 93 b0 00 	sts	0x00B0, r29
+ 254:	80 91 03 01 	lds	r24, 0x0103
+ 258:	80 93 b3 00 	sts	0x00B3, r24
+ 25c:	02 c0       	rjmp	.+4      	; 0x262 <main+0x36>
+ 25e:	c0 93 b0 00 	sts	0x00B0, r28
+ 262:	8f ec       	ldi	r24, 0xCF	; 207
+ 264:	97 e0       	ldi	r25, 0x07	; 7
+ 266:	01 97       	sbiw	r24, 0x01	; 1
+ 268:	f1 f7       	brne	.-4      	; 0x266 <main+0x3a>
+ 26a:	00 c0       	rjmp	.+0      	; 0x26c <main+0x40>
+ 26c:	00 00       	nop
+ 26e:	e2 cf       	rjmp	.-60     	; 0x234 <main+0x8>
 
-00000278 <_exit>:
- 278:	f8 94       	cli
+00000270 <_exit>:
+ 270:	f8 94       	cli
 
-0000027a <__stop_program>:
- 27a:	ff cf       	rjmp	.-2      	; 0x27a <__stop_program>
+00000272 <__stop_program>:
+ 272:	ff cf       	rjmp	.-2      	; 0x272 <__stop_program>

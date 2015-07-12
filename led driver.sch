@@ -80,12 +80,6 @@
 <text x="-2.54" y="-2.54" size="1.778" layer="96" rot="R90">&gt;VALUE</text>
 <pin name="VCC" x="0" y="-2.54" visible="off" length="short" direction="sup" rot="R90"/>
 </symbol>
-<symbol name="+5V">
-<wire x1="1.27" y1="-1.905" x2="0" y2="0" width="0.254" layer="94"/>
-<wire x1="0" y1="0" x2="-1.27" y2="-1.905" width="0.254" layer="94"/>
-<text x="-2.54" y="-5.08" size="1.778" layer="96" rot="R90">&gt;VALUE</text>
-<pin name="+5V" x="0" y="-2.54" visible="off" length="short" direction="sup" rot="R90"/>
-</symbol>
 <symbol name="+12V">
 <wire x1="1.27" y1="-1.905" x2="0" y2="0" width="0.254" layer="94"/>
 <wire x1="0" y1="0" x2="-1.27" y2="-1.905" width="0.254" layer="94"/>
@@ -113,19 +107,6 @@
 <description>&lt;b&gt;SUPPLY SYMBOL&lt;/b&gt;</description>
 <gates>
 <gate name="VCC" symbol="VCC" x="0" y="0"/>
-</gates>
-<devices>
-<device name="">
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-<deviceset name="+5V" prefix="P+">
-<description>&lt;b&gt;SUPPLY SYMBOL&lt;/b&gt;</description>
-<gates>
-<gate name="1" symbol="+5V" x="0" y="0"/>
 </gates>
 <devices>
 <device name="">
@@ -5548,13 +5529,12 @@ Wickmann</description>
 <parts>
 <part name="GND1" library="supply1" deviceset="GND" device=""/>
 <part name="U1" library="Maxim_By_element14_Batch_1" deviceset="MAX485CSA+" device=""/>
-<part name="P+1" library="supply1" deviceset="+5V" device=""/>
 <part name="IC1" library="atmel" deviceset="MEGA8" device="-AI"/>
 <part name="ISP" library="con-molex" deviceset="5566-10" device=""/>
 <part name="P+2" library="supply1" deviceset="VCC" device=""/>
 <part name="GND2" library="supply1" deviceset="GND" device=""/>
 <part name="P+4" library="supply1" deviceset="VCC" device=""/>
-<part name="R1" library="resistor" deviceset="R-EU_" device="M1206"/>
+<part name="R1" library="resistor" deviceset="R-EU_" device="M1206" value="10K"/>
 <part name="GND3" library="supply1" deviceset="GND" device=""/>
 <part name="R2" library="resistor" deviceset="R-EU_" device="R1206" value="22"/>
 <part name="Q1" library="transistor-small-signal" deviceset="BC639" device="" value="BCP56"/>
@@ -5568,6 +5548,13 @@ Wickmann</description>
 <part name="P+5" library="supply1" deviceset="+12V" device=""/>
 <part name="F1" library="fuse" deviceset="TE5" device=""/>
 <part name="LED" library="con-molex" deviceset="5566-10" device=""/>
+<part name="R4" library="resistor" deviceset="R-EU_" device="R1206" value="2R2"/>
+<part name="P+6" library="supply1" deviceset="VCC" device=""/>
+<part name="C2" library="capacitor-wima" deviceset="C" device="2,5-3" value="100nF"/>
+<part name="GND6" library="supply1" deviceset="GND" device=""/>
+<part name="P+1" library="supply1" deviceset="VCC" device=""/>
+<part name="P+7" library="supply1" deviceset="VCC" device=""/>
+<part name="R5" library="resistor" deviceset="R-EU_" device="M1206" value="10K"/>
 </parts>
 <sheets>
 <sheet>
@@ -5576,7 +5563,6 @@ Wickmann</description>
 <instances>
 <instance part="GND1" gate="1" x="30.48" y="-7.62"/>
 <instance part="U1" gate="A" x="50.8" y="10.16"/>
-<instance part="P+1" gate="1" x="30.48" y="20.32"/>
 <instance part="IC1" gate="G$1" x="40.64" y="73.66"/>
 <instance part="ISP" gate="-1" x="121.92" y="66.04" smashed="yes">
 <attribute name="NAME" x="124.46" y="65.278" size="1.524" layer="95"/>
@@ -5602,8 +5588,8 @@ Wickmann</description>
 <instance part="R2" gate="G$1" x="101.6" y="119.38"/>
 <instance part="Q1" gate="1" x="114.3" y="127"/>
 <instance part="Q2" gate="G$1" x="114.3" y="111.76"/>
-<instance part="P+3" gate="VCC" x="116.84" y="137.16" smashed="yes">
-<attribute name="VALUE" x="114.3" y="134.62" size="1.778" layer="96" rot="R90"/>
+<instance part="P+3" gate="VCC" x="116.84" y="149.86" smashed="yes">
+<attribute name="VALUE" x="114.3" y="147.32" size="1.778" layer="96" rot="R90"/>
 </instance>
 <instance part="GND4" gate="1" x="116.84" y="101.6"/>
 <instance part="R3" gate="G$1" x="132.08" y="119.38"/>
@@ -5616,6 +5602,19 @@ Wickmann</description>
 <attribute name="NAME" x="175.26" y="141.478" size="1.524" layer="95"/>
 </instance>
 <instance part="LED" gate="-2" x="172.72" y="129.54"/>
+<instance part="R4" gate="G$1" x="116.84" y="139.7" rot="R90"/>
+<instance part="P+6" gate="VCC" x="0" y="96.52" smashed="yes">
+<attribute name="VALUE" x="-2.54" y="93.98" size="1.778" layer="96" rot="R90"/>
+</instance>
+<instance part="C2" gate="G$1" x="0" y="88.9"/>
+<instance part="GND6" gate="1" x="0" y="78.74"/>
+<instance part="P+1" gate="VCC" x="30.48" y="20.32" smashed="yes">
+<attribute name="VALUE" x="27.94" y="17.78" size="1.778" layer="96" rot="R90"/>
+</instance>
+<instance part="P+7" gate="VCC" x="10.16" y="22.86" smashed="yes">
+<attribute name="VALUE" x="7.62" y="20.32" size="1.778" layer="96" rot="R90"/>
+</instance>
+<instance part="R5" gate="G$1" x="10.16" y="12.7" rot="R270"/>
 </instances>
 <busses>
 </busses>
@@ -5629,6 +5628,10 @@ Wickmann</description>
 <pinref part="U1" gate="A" pin="DI"/>
 <pinref part="IC1" gate="G$1" pin="PD1(TXD)"/>
 <wire x1="66.04" y1="73.66" x2="88.9" y2="73.66" width="0.1524" layer="91"/>
+<pinref part="R5" gate="G$1" pin="2"/>
+<wire x1="17.78" y1="2.54" x2="10.16" y2="2.54" width="0.1524" layer="91"/>
+<wire x1="10.16" y1="2.54" x2="10.16" y2="7.62" width="0.1524" layer="91"/>
+<junction x="17.78" y="2.54"/>
 </segment>
 </net>
 <net name="N$2" class="0">
@@ -5688,8 +5691,24 @@ Wickmann</description>
 </segment>
 <segment>
 <pinref part="P+3" gate="VCC" pin="VCC"/>
-<pinref part="Q1" gate="1" pin="C"/>
-<wire x1="116.84" y1="134.62" x2="116.84" y2="132.08" width="0.1524" layer="91"/>
+<pinref part="R4" gate="G$1" pin="2"/>
+<wire x1="116.84" y1="147.32" x2="116.84" y2="144.78" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="P+6" gate="VCC" pin="VCC"/>
+<pinref part="C2" gate="G$1" pin="1"/>
+<wire x1="0" y1="93.98" x2="0" y2="91.44" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<wire x1="33.02" y1="15.24" x2="30.48" y2="15.24" width="0.1524" layer="91"/>
+<pinref part="U1" gate="A" pin="VCC"/>
+<wire x1="30.48" y1="15.24" x2="30.48" y2="17.78" width="0.1524" layer="91"/>
+<pinref part="P+1" gate="VCC" pin="VCC"/>
+</segment>
+<segment>
+<pinref part="P+7" gate="VCC" pin="VCC"/>
+<pinref part="R5" gate="G$1" pin="1"/>
+<wire x1="10.16" y1="20.32" x2="10.16" y2="17.78" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="GND" class="0">
@@ -5741,13 +5760,10 @@ Wickmann</description>
 <pinref part="GND5" gate="1" pin="GND"/>
 <wire x1="147.32" y1="116.84" x2="147.32" y2="114.3" width="0.1524" layer="91"/>
 </segment>
-</net>
-<net name="+5V" class="0">
 <segment>
-<wire x1="33.02" y1="15.24" x2="30.48" y2="15.24" width="0.1524" layer="91"/>
-<pinref part="U1" gate="A" pin="VCC"/>
-<pinref part="P+1" gate="1" pin="+5V"/>
-<wire x1="30.48" y1="15.24" x2="30.48" y2="17.78" width="0.1524" layer="91"/>
+<pinref part="C2" gate="G$1" pin="2"/>
+<pinref part="GND6" gate="1" pin="GND"/>
+<wire x1="0" y1="83.82" x2="0" y2="81.28" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$6" class="0">
@@ -5853,6 +5869,13 @@ Wickmann</description>
 <pinref part="P+5" gate="1" pin="+12V"/>
 <pinref part="F1" gate="1" pin="2"/>
 <wire x1="147.32" y1="157.48" x2="147.32" y2="154.94" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$12" class="0">
+<segment>
+<pinref part="R4" gate="G$1" pin="1"/>
+<pinref part="Q1" gate="1" pin="C"/>
+<wire x1="116.84" y1="134.62" x2="116.84" y2="132.08" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>

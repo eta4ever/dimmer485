@@ -3,17 +3,10 @@ from comm485 import Conn485
 import time
 import configparser
 
-# конфигурационный файл устройств
-CONFIG_FILE = "cfg\\devices.cfg"
-
-# типы управляющих устройства
-CONTROL_TYPES = ["encoder", "switch", "virtual", "timer"]
-
-# типы исполнительных устройств
-EXEC_TYPES = ["pwm", "relay"]
-
-# типы "железных" устройств
-HARDWARE_TYPES = ["encoder", "switch", "pwm", "relay"]
+CONFIG_FILE = "cfg\\devices.cfg"  # конфигурационный файл устройств
+CONTROL_TYPES = ["encoder", "switch", "virtual", "timer"]  # управляющие
+EXEC_TYPES = ["pwm", "relay"]  # исполнительные устройства
+HARDWARE_TYPES = ["encoder", "switch", "pwm", "relay"]  # "железные" устройства
 
 controllers = []  # список управляющих устройств
 executors = []  # список исполнительных устройств
@@ -105,7 +98,6 @@ executors_id_by_name = {
     executor.get_name(): executors.index(executor) for executor in executors}
 
 # инициализация словаря "код исполнителя: []" для дальнейшего заполнения управляющими
-# сюда не попадают исполнители, управляемые по таймеру!
 executors_controlled_by = {
     executors.index(executor): [] for executor in executors}
 

@@ -9,238 +9,242 @@ READ_REG = 10
 WRITE_REG = 20
 CHANGE_ADDR = 30
 
+
 class Device:
 
-	def __init__(self, name, devtype):
-		""" конструктор основного объекта"""
+    def __init__(self, name, devtype):
+        """ конструктор основного объекта"""
 
-		self.name = name # имя устройства
-		self.type = devtype # тип устройства
+        self.name = name  # имя устройства
+        self.type = devtype  # тип устройства
 
-	def init_as_hardware(self, address, init_regs, connection):
-		""" инициализация "железного" или виртуального устройства"""
-		self.address = address
-		self.registers = [0,0]
+    def init_as_hardware(self, address, init_regs, connection):
+        """ инициализация "железного" или виртуального устройства"""
+        self.address = address
+        self.registers = [0, 0]
 
-		if self.write_registers(init_regs, connection):
-			return 0xFF
-		else: 
-			return 0
-	
-	def init_as_controller(self, controls, priority):
-		""" инициализация как управляющего """
-		self.what_controls = controls
-		self.priority = priority
+        if self.write_registers(init_regs, connection):
+            return 0xFF
+        else:
+            return 0
 
-	def init_as_timer(self, regs_on, regs_off, time_on, time_off):
-		""" инициализация таймера """
+    def init_as_controller(self, controls, priority):
+        """ инициализация как управляющего """
+        self.what_controls = controls
+        self.priority = priority
 
-		self.regs_on = regs_on
-		self.regs_off = regs_off
+    def init_as_timer(self, regs_on, regs_off, time_on, time_off):
+        """ инициализация таймера """
 
-		self.time_on = time.strptime(time_on, "%H:%M") # конвертация строки в struct_time по формату
-		self.time_off = time.strptime(time_off, "%H:%M") 
+        self.regs_on = regs_on
+        self.regs_off = regs_off
 
-		# преобразование в минуты для простого сравнения
-		# так работать в итоге проще, чем преобразовывать туда-сюда форматы времени и 
-		# учитывать дату
-		self.time_on = self.time_on.tm_hour * 60 + self.time_on.tm_min
-		self.time_off = self.time_off.tm_hour * 60 + self.time_off.tm_min
+        # конвертация строки в struct_time по формату
+        self.time_on = time.strptime(time_on, "%H:%M")
+        self.time_off = time.strptime(time_off, "%H:%M")
 
-	def write_registers(self, registers, connection):
-		""" запись регистров устройства, возвращает FF при успехе
-		и 00 при неправильном подтверждении или его отсутствии
-		записывает в поля только при успехе"""
+        # преобразование в минуты для простого сравнения
+        # так работать в итоге проще, чем преобразовывать туда-сюда форматы времени и
+        # учитывать дату
+        self.time_on = self.time_on.tm_hour * 60 + self.time_on.tm_min
+        self.time_off = self.time_off.tm_hour * 60 + self.time_off.tm_min
 
-		# не работает для таймера
-		if self.type == "timer":
-			return 0
+    def write_registers(self, registers, connection):
+        """ запись регистров устройства, возвращает FF при успехе
+        и 00 при неправильном подтверждении или его отсутствии
+        записывает в поля только при успехе"""
 
-		# для виртуального устройства - только в поля
-		if self.type == "virtual":
-			self.registers = registers
-			return 0xFF
+        # не работает для таймера
+        if self.type == "timer":
+            return 0
 
-		# в устройство
-		connection.send([self.address, WRITE_REG, registers[0], registers[1]])
-		# time.sleep(0.01)
+        # для виртуального устройства - только в поля
+        if self.type == "virtual":
+            self.registers = registers
+            return 0xFF
 
-		# подтверждение и его проверка
-		ack_packet = connection.receive()
+        # в устройство
+        connection.send([self.address, WRITE_REG, registers[0], registers[1]])
+        # time.sleep(0.01)
 
-		# print(ack_packet)
+        # подтверждение и его проверка
+        ack_packet = connection.receive()
 
-		# неполный прием или неверная контрольная сумма
-		if ack_packet == [0]: 
-			# print(1)
-			return 0
-		
-		# несовпадение адреса мастера или несовпадение регистров с переданными
-		elif (ack_packet[0] != MASTER) or (ack_packet[2] != registers[0]) or (ack_packet[3] != registers[1]):
-			# print(ack_packet[0], MASTER, ack_packet[2], registers[0], ack_packet[3], registers[1])
-			return 0
+        # print(ack_packet)
 
-		# успешно
-		else:
-			# в поля объекта
-			self.registers[0] = registers[0]
-			self.registers[1] = registers[1]	
+        # неполный прием или неверная контрольная сумма
+        if ack_packet == [0]:
+            # print(1)
+            return 0
 
-			return 0xFF	
+        # несовпадение адреса мастера или несовпадение регистров с переданными
+        elif (ack_packet[0] != MASTER) or (ack_packet[2] != registers[0]) or (ack_packet[3] != registers[1]):
+            # print(ack_packet[0], MASTER, ack_packet[2], registers[0], ack_packet[3], registers[1])
+            return 0
 
-	def read_registers(self, connection):
-		""" чтение регистров из устройства,
-		записывает в поля и возвращает FF при успехе,
-		иначе возвращает 0"""
+        # успешно
+        else:
+            # в поля объекта
+            self.registers[0] = registers[0]
+            self.registers[1] = registers[1]
 
-		# не работает для таймера
-		if self.type == "timer":
-			return 0
+            return 0xFF
 
-		# для виртуального устройства - просто возврат FF,
-		# так как поля всегда актуальны
-		if self.type == "virtual":
-			return 0xFF
+    def read_registers(self, connection):
+        """ чтение регистров из устройства,
+        записывает в поля и возвращает FF при успехе,
+        иначе возвращает 0"""
 
-		# запрос
-		connection.send([self.address, READ_REG,0,0])
-		# time.sleep(0.01)
+        # не работает для таймера
+        if self.type == "timer":
+            return 0
 
-		# получение ответа
-		ack_packet = connection.receive()
+        # для виртуального устройства - просто возврат FF,
+        # так как поля всегда актуальны
+        if self.type == "virtual":
+            return 0xFF
 
-		# неполный прием или неверная контрольная сумма
-		if ack_packet == 0: 
-			return 0
+        # запрос
+        connection.send([self.address, READ_REG, 0, 0])
+        # time.sleep(0.01)
 
-		# несовпадение адреса мастера
-		if ack_packet[0] != MASTER:
-			return 0
+        # получение ответа
+        ack_packet = connection.receive()
 
-		# запись регистров в поля
-		self.registers[0] = ack_packet[2]
-		self.registers[1] = ack_packet[3]
+        # неполный прием или неверная контрольная сумма
+        if ack_packet == 0:
+            return 0
 
-		return 0xFF
+        # несовпадение адреса мастера
+        if ack_packet[0] != MASTER:
+            return 0
 
-	def set_address(self, address, connection):
-		""" изменение адреса устройства
-		возвращает 0 при неудаче, при успехе записывает в поле
-		и возращает FF"""
+        # запись регистров в поля
+        self.registers[0] = ack_packet[2]
+        self.registers[1] = ack_packet[3]
 
-		# не работает для таймера и виртуального устройства
-		if self.type in ["virtual","timer"]:
-			return 0
+        return 0xFF
 
-		# в устройство
-		connection.send([self.address, CHANGE_ADDR, address, 0])
-		time.sleep(0.01)
+    def set_address(self, address, connection):
+        """ изменение адреса устройства
+        возвращает 0 при неудаче, при успехе записывает в поле
+        и возращает FF"""
 
-		# подтверждение и его проверка
-		ack_packet = self.connection.receive()
+        # не работает для таймера и виртуального устройства
+        if self.type in ["virtual", "timer"]:
+            return 0
 
-		# неполный прием или неверная контрольная сумма
-		if ack_packet == [0]: 
-			return 0
-		
-		# несовпадение адреса мастера
-		if ack_packet[0] != MASTER:
-			return 0
+        # в устройство
+        connection.send([self.address, CHANGE_ADDR, address, 0])
+        time.sleep(0.01)
 
-		# запись нового адреса в поле
-		self.address = address
+        # подтверждение и его проверка
+        ack_packet = self.connection.receive()
 
-		return 0xFF
+        # неполный прием или неверная контрольная сумма
+        if ack_packet == [0]:
+            return 0
 
-	def get_registers(self):
-		""" получение регистров устройства"""
+        # несовпадение адреса мастера
+        if ack_packet[0] != MASTER:
+            return 0
 
-		return self.registers
+        # запись нового адреса в поле
+        self.address = address
 
-	def get_name(self):
-		""" чтение имени устройства"""
+        return 0xFF
 
-		return self.name
+    def get_registers(self):
+        """ получение регистров устройства"""
 
-	def get_address(self):
-		""" получение адреса """
+        return self.registers
 
-		# не работает для таймера и виртуального устройства
-		if self.type in ["timer", "virtual"]:
-			return 0
-		else:
-			return self.address
+    def get_name(self):
+        """ чтение имени устройства"""
 
-	def get_type(self):
-		""" получение типа устройства"""
+        return self.name
 
-		return self.type
+    def get_address(self):
+        """ получение адреса """
 
-	def controls(self):
-		"""получение имени управлямого устройства"""
+        # не работает для таймера и виртуального устройства
+        if self.type in ["timer", "virtual"]:
+            return 0
+        else:
+            return self.address
 
-		return self.what_controls
+    def get_type(self):
+        """ получение типа устройства"""
 
-	def get_priority(self):
-		""" получение приоритета управляющего устройства"""
+        return self.type
 
-		return self.priority
+    def controls(self):
+        """получение имени управлямого устройства"""
 
-	def check_time(self):
-		""" проверка времени. Если исполнитель в это время должен быть выключен,
-		возвращает 0, если включен - FF """
+        return self.what_controls
 
-		# работает только для таймера
-		if self.type != "timer":
-			return 0
+    def get_priority(self):
+        """ получение приоритета управляющего устройства"""
 
-		current = time.localtime() # получение struct текущего времени
-		current = current.tm_hour * 60 + current.tm_min # преобразование в минуты для простого сравнения
+        return self.priority
 
-		if self.time_off >= self.time_on:
-			# если время выключения больше времени включения - все просто,
-			# перехода на следующие сутки нет
-			
-			if current in range(self.time_on, self.time_off):
-				return 0xFF
-			else:
-				return 0
+    def check_time(self):
+        """ проверка времени. Если исполнитель в это время должен быть выключен,
+        возвращает 0, если включен - FF """
 
-		else:
-			# обработка перехода на следующие сутки
-			if current <= 1439: # если текущее время в промежутке до 23:59 включительно
-				if current in range(self.time_on, 1440): # проверить левый интервал
-					return 0xFF
-				else:
-					return 0
-			else: 
-				if current in range(0, self.time_off): # проверить правый интервал
-					return 0xFF
-				else:
-					return 0
+        # работает только для таймера
+        if self.type != "timer":
+            return 0
 
-	def get_regs_on(self):
-		""" возвращает значения регистров для состояния ВКЛ """
+        current = time.localtime()  # получение struct текущего времени
+        # преобразование в минуты для простого сравнения
+        current = current.tm_hour * 60 + current.tm_min
 
-		# работает только для таймера
-		if self.type != "timer":
-			return [0,0]
-		return self.regs_on
+        if self.time_off >= self.time_on:
+            # если время выключения больше времени включения - все просто,
+            # перехода на следующие сутки нет
 
-	def get_regs_off(self):
-		""" возвращает значения регистров для состояния ВЫКЛ """
+            if current in range(self.time_on, self.time_off):
+                return 0xFF
+            else:
+                return 0
 
-		# работает только для таймера
-		if self.type != "timer":
-			return [0,0]
-		return self.regs_off
+        else:
+            # обработка перехода на следующие сутки
+            # если текущее время в промежутке до 23:59 включительно
+            if current <= 1439:
+                # проверить левый интервал
+                if current in range(self.time_on, 1440):
+                    return 0xFF
+                else:
+                    return 0
+            else:
+                # проверить правый интервал
+                if current in range(0, self.time_off):
+                    return 0xFF
+                else:
+                    return 0
 
-	def controls(self):
-		""" возвращает имя управляемого устройства"""
+    def get_regs_on(self):
+        """ возвращает значения регистров для состояния ВКЛ """
 
-		# не работает для исполнительных устройств
-		if self.type in ["pwm", "relay"]:
-			return ""
-		return self.what_controls
+        # работает только для таймера
+        if self.type != "timer":
+            return [0, 0]
+        return self.regs_on
 
+    def get_regs_off(self):
+        """ возвращает значения регистров для состояния ВЫКЛ """
 
+        # работает только для таймера
+        if self.type != "timer":
+            return [0, 0]
+        return self.regs_off
+
+    def controls(self):
+        """ возвращает имя управляемого устройства"""
+
+        # не работает для исполнительных устройств
+        if self.type in ["pwm", "relay"]:
+            return ""
+        return self.what_controls

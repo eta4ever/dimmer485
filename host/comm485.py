@@ -1,77 +1,76 @@
 # реализация мини-протокола работы с устройствами по RS-485:
 # пакет из 5 байт. Адрес, команда, данные, данные, контрольная сумма.
-import serial, time, configparser
+import serial
+import time
+import configparser
 
 CONFIG_FILE = "cfg\\connection.cfg"
 
+
 class Conn485:
 
-	def __init__(self):
-		""" конструктор """
-		
-		# чтение настроек из конфигурационного файла
-		config = configparser.RawConfigParser()
-		config.read(CONFIG_FILE)
+    def __init__(self):
+        """ конструктор """
 
-		port = config.get("MAIN", "port")
-		baudrate = config.getint("MAIN", "baudrate")
-		rx_timeout = config.getfloat("MAIN", "timeout")
+        # чтение настроек из конфигурационного файла
+        config = configparser.RawConfigParser()
+        config.read(CONFIG_FILE)
 
-		# открытие соединения UART
+        port = config.get("MAIN", "port")
+        baudrate = config.getint("MAIN", "baudrate")
+        rx_timeout = config.getfloat("MAIN", "timeout")
 
-		self.conn = serial.Serial(port, baudrate, timeout = rx_timeout)
-		time.sleep(0.01)
+        # открытие соединения UART
 
-	def __del__(self):
-		""" деструктор """
+        self.conn = serial.Serial(port, baudrate, timeout=rx_timeout)
+        time.sleep(0.01)
 
-		# закрытие соединения UART
-		self.conn.close()
+    def __del__(self):
+        """ деструктор """
 
-	def checksum(self, packet):
-		""" подсчет контрольной суммы пакета """
+        # закрытие соединения UART
+        self.conn.close()
 
-		return sum(packet[0:4]) % 256
+    def checksum(self, packet):
+        """ подсчет контрольной суммы пакета """
 
-	def send(self, packet):
-		""" отправка пакета, на входе 4 байта """
+        return sum(packet[0:4]) % 256
 
-		# формирование пакета
-		packet_to_send = list(packet)
-		packet_checksum = self.checksum(packet)
-		packet_to_send.append(packet_checksum)
+    def send(self, packet):
+        """ отправка пакета, на входе 4 байта """
 
-		# режим передачи
-		# self.conn.setDTR(False)
-		# time.sleep(0.01)
+        # формирование пакета
+        packet_to_send = list(packet)
+        packet_checksum = self.checksum(packet)
+        packet_to_send.append(packet_checksum)
 
-		# передача
-		self.conn.write(packet_to_send)
+        # режим передачи
+        # self.conn.setDTR(False)
+        # time.sleep(0.01)
 
-	def receive(self):
-		""" прием и проверка пакета. Возвращает [0], при несовпадении
-		контрольной суммы или недостаточной длине пакета """
+        # передача
+        self.conn.write(packet_to_send)
 
-		# режим приема
-		# self.conn.setDTR(True)
-		# time.sleep(0.01)
-		
-		# прием
-		received_packet = list(self.conn.read(5))
+    def receive(self):
+        """ прием и проверка пакета. Возвращает [0], при несовпадении
+        контрольной суммы или недостаточной длине пакета """
 
-		#DEBUG
-		# print (received_packet)
+        # режим приема
+        # self.conn.setDTR(True)
+        # time.sleep(0.01)
 
-		# проверка длины пакета
-		if len(received_packet) != 5:
-			return [0]
+        # прием
+        received_packet = list(self.conn.read(5))
 
-		# проверка контрольной суммы	
-		if received_packet[4] != self.checksum(received_packet[0:4]):
-			return [0]
+        # DEBUG
+        # print (received_packet)
 
-		return received_packet
+        # проверка длины пакета
+        if len(received_packet) != 5:
+            return [0]
 
+        # проверка контрольной суммы
+        if received_packet[4] != self.checksum(received_packet[0:4]):
+            return [0]
 
-
-
+        return received_packet

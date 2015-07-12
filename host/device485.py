@@ -12,11 +12,12 @@ CHANGE_ADDR = 30
 
 class Device:
 
-    def __init__(self, name, devtype):
+    def __init__(self, name, devtype, enabled):
         """ конструктор основного объекта"""
 
         self.name = name  # имя устройства
         self.type = devtype  # тип устройства
+        self.enable_status = enabled  # начальный статус устройства
 
     def init_as_hardware(self, address, init_regs, connection):
         """ инициализация "железного" или виртуального устройства"""
@@ -28,10 +29,14 @@ class Device:
         else:
             return 0
 
-    def init_as_controller(self, controls, priority):
-        """ инициализация как управляющего """
+    def init_as_controller(self, controls, priority, init_regs):
+        """ инициализация как управляющего.
+        init_regs дублируются здесь и в init_as_hardware, потому что
+        может быть виртуальное устройство, а может быть реальное, но не
+        управляющее """
         self.what_controls = controls
         self.priority = priority
+        self.registers = init_regs
 
     def init_as_timer(self, regs_on, regs_off, time_on, time_off):
         """ инициализация таймера """
@@ -248,3 +253,15 @@ class Device:
         if self.type in ["pwm", "relay"]:
             return ""
         return self.what_controls
+
+    def enable(self):
+        """ задействование устройства"""
+        self.enable_status = 1
+
+    def disable(self):
+        """ отключение обработки устройства"""
+        self.enable_status = 0
+
+    def enabled(self):
+        """ выдача статуса задействования устройства"""
+        return self.enable_status

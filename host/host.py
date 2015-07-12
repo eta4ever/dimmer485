@@ -25,15 +25,18 @@ def create_devices():
         # выбор общих параметров
         name = config.get(section, 'name')
         dev_type = config.get(section, 'type')
+        enabled = config.getint(section, 'enabled')
 
         # создание устройства
-        device = Device(name, dev_type)
+        device = Device(name, dev_type, enabled)
 
         # определение устройства в управляющие или исполнительные
         if dev_type in CONTROL_TYPES:
             controls = config.get(section, 'controls')
             priority = config.getint(section, 'priority')
-            device.init_as_controller(controls, priority)
+            init_regs = [
+                config.getint(section, 'reg1'), config.getint(section, 'reg2')]
+            device.init_as_controller(controls, priority, init_regs)
             controllers.append(device)
 
         elif dev_type in EXEC_TYPES:
@@ -66,38 +69,14 @@ def create_devices():
             time_off = config.get(section, 'time_off')
             device.init_as_timer(regs_on, regs_off, time_on, time_off)
 
-
-def controller_to_executor(controller, connection):
-    """ чтение регистров управляющего, запись регистров
-    соответствующего исполнителя"""
-
-    # определение управляющего
-    curr_executor_id = executors[executors_id_by_name[controller.controls()]]
-
-    # чтение регистров управляющего
-    if controller.read_registers(connection):
-        regs_to_executor = curr_controller.get_registers()
-        print("o")
-
-        # запись регистров исполнителя
-        if executors[executor_id].write_registers(regs_to_executor, connection):
-            print("x")
-            pass
-        else:
-            print("ERROR writing {} addr {:d}".format(executors[
-                  curr_executor_id].get_name(), executors[curr_executor_id].get_address()))
-
-    else:
-        print("ERROR reading {} addr {:d}".format(
-            controller.get_name(), controller.get_address()))
-
 create_devices()
 
 # формирование словаря вида "имя исполнителя : код в списке executors"
 executors_id_by_name = {
     executor.get_name(): executors.index(executor) for executor in executors}
 
-# инициализация словаря "код исполнителя: []" для дальнейшего заполнения управляющими
+# инициализация словаря "код исполнителя: []" для дальнейшего заполнения
+# управляющими
 executors_controlled_by = {
     executors.index(executor): [] for executor in executors}
 
@@ -107,8 +86,8 @@ for controller in controllers:
     executors_controlled_by[executor_id].append(controllers.index(controller))
 
 # DEBUG
-if controllers[0].write_registers([100, 1], conn):
-    print("set")
+# if controllers[0].write_registers([100, 1], conn):
+#     print("set")
 
 try:
 
@@ -116,21 +95,64 @@ try:
 
         for executor_id in range(0, len(executors)):
 
-            if len(executors_controlled_by[executor_id]) == 1:
-                # простой случай, один управляющий
+            # если исполнитель не задействован, пропустить его
+            if not(executors[executor_id].enabled()):
+                continue
 
-                # выбор первого (и единственного) управляющего для данного
-                # исполнителя
-                curr_controller = controllers[
-                    executors_controlled_by[executor_id][0]]
+            # обработка устройств, управляющих этим исполнителем
+            # с учетом статуса задействованности и приоритета
 
-                # чтение из управляющего, запись регистров исполнителя
-                controller_to_executor(curr_controller, conn)
+            # список пар (приоритет, id управляющего)
+            controllers_by_priority = []
 
-            else:
-                # несколько управляющих на одного исполнителя, обработка
-                # приоритетов
-                pass
+            # наполнение этого списка
+            for controller_id in executors_controlled_by[executor_id]:
+
+                # если управляющий задействован, добавить его
+                # приоритет и индекс в список
+                if controllers[controller_id].enabled():
+                    controllers_by_priority.append(
+                        (controllers[controller_id].get_priority(),
+                         controller_id))
+
+            # сортировка по приоритету
+            controllers_by_priority.sort()
+
+            # если список не пустой
+            if len(controllers_by_priority) > 0:
+
+                # выбор id приоритетного контроллера
+                top_controller_id = controllers_by_priority[0][1]
+
+                # и удаление его пары из списка
+                del controllers_by_priority[0]
+
+                # получение регистров приоритетного контроллера
+                actual_registers = [0, 0]
+                if controllers[top_controller_id].read_registers(conn):
+                    actual_registers = controllers[
+                        top_controller_id].get_registers()
+                else:
+                    print("ERROR reading {} addr {:d}".format(
+                        controllers[top_controller_id].get_name(), controllers[top_controller_id].get_address()))
+
+                # если в списке есть другие управляющие,
+                # синхронизировать их регистры с приоритетным
+                for priority_controller_pair in controllers_by_priority:
+                    controller_id = priority_controller_pair[1]
+                    if controllers[controller_id].write_registers(actual_registers, conn):
+                        print(
+                            "Sync to {}".format(controllers[controller_id].get_name()))
+                    else:
+                        print("ERROR writing {} addr {:d}".format(
+                            controllers[controller_id].get_name(), controllers[controller_id].get_address()))
+
+                # передача регистров исполнителю
+                if executors[executor_id].write_registers(actual_registers, conn):
+                    print("Exec {}".format(executors[executor_id].get_name()))
+                else:
+                    print("ERROR writing {} addr {:d}".format(
+                        executors[executor_id].get_name(), executors[executor_id].get_address()))
 
         time.sleep(1)
 

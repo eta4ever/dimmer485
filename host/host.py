@@ -141,20 +141,22 @@ try:
                 for priority_controller_pair in controllers_by_priority:
                     controller_id = priority_controller_pair[1]
                     if controllers[controller_id].write_registers(actual_registers, conn):
-                        print(
-                            "Sync to {}".format(controllers[controller_id].get_name()))
+                        # print(
+                        #     "Sync to {}".format(controllers[controller_id].get_name()))
+                        pass
                     else:
                         print("ERROR writing {} addr {:d}".format(
                             controllers[controller_id].get_name(), controllers[controller_id].get_address()))
 
                 # передача регистров исполнителю
                 if executors[executor_id].write_registers(actual_registers, conn):
-                    print("Exec {}".format(executors[executor_id].get_name()))
+                    # print("Exec {}".format(executors[executor_id].get_name()))
+                    pass
                 else:
                     print("ERROR writing {} addr {:d}".format(
                         executors[executor_id].get_name(), executors[executor_id].get_address()))
 
-        time.sleep(1)
+        time.sleep(0.1)
 
 finally:
     # проверка существования conn в локальной области видимости

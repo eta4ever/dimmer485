@@ -22,7 +22,7 @@ try:
 		# time.sleep(0.1)
 		# print(led1.write_registers([200,0],conn))
 
-		time.sleep(1)
+		time.sleep(0.1)
 		enc1.read_registers(conn)
 		print (enc1.get_registers())
 

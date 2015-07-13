@@ -13,6 +13,8 @@
 
 #define REGS_TO_MASTER 50 // код команды при отправке регистров мастеру
 
+#define MIN_LEVEL 20 // минимальный уровень яркости
+
 // глобальная переменная пакета данных
 unsigned char packet[5];
 
@@ -101,7 +103,7 @@ void encoder_scan(void){
 			// 11 -> 01 +
 			if ((new_encoder_state == 1) && (data[0] != 255)) data[0]++;
 			// 11 -> 10 -
-			if ((new_encoder_state == 2) && (data[0] != 0)) data[0]--;
+			if ((new_encoder_state == 2) && (data[0] != MIN_LEVEL)) data[0]--;
 			break;
 		}
 
@@ -110,7 +112,7 @@ void encoder_scan(void){
 			// 10 -> 11 +
 			if ((new_encoder_state == 3) && (data[0] != 255)) data[0]++;
 			// 10 -> 00 -
-			if ((new_encoder_state == 0) & (data[0] != 0)) data[0]--;
+			if ((new_encoder_state == 0) & (data[0] != MIN_LEVEL)) data[0]--;
 			break;
 		}
 
@@ -119,7 +121,7 @@ void encoder_scan(void){
 			// 01 -> 00 +
 			if ((new_encoder_state == 0) && (data[0] != 255)) data[0]++;
 			// 01 -> 11 -
-			if ((new_encoder_state == 3) && (data[0] != 0)) data[0]--;
+			if ((new_encoder_state == 3) && (data[0] != MIN_LEVEL)) data[0]--;
 			break;
 		}
 
@@ -128,7 +130,7 @@ void encoder_scan(void){
 			// 00 -> 10 +
 			if ((new_encoder_state == 2) && (data[0] != 255)) data[0]++;
 			// 00 -> 01 -
-			if ((new_encoder_state == 1) && (data[0] != 0)) data[0]--;
+			if ((new_encoder_state == 1) && (data[0] != MIN_LEVEL)) data[0]--;
 			break;
 		}
 
@@ -270,6 +272,7 @@ void process_packet(void){
 		case WRITE_REG:{	// запись регистров
 			data[0] = packet[2];
 			data[1] = packet[3];
+			if (data[0] < MIN_LEVEL) data[0] = MIN_LEVEL; // проверка на минимальный уровень
 			send_registers();
 			break;
 		}

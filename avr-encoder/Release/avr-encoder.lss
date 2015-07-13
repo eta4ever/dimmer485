@@ -3,13 +3,13 @@ avr-encoder.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .data         00000002  00800100  00000374  00000408  2**0
+  0 .data         00000002  00800100  0000037c  00000410  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  1 .text         00000374  00000000  00000000  00000094  2**1
+  1 .text         0000037c  00000000  00000000  00000094  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  2 .bss          0000000a  00800102  00800102  0000040a  2**0
+  2 .bss          0000000a  00800102  00800102  00000412  2**0
                   ALLOC
-  3 .comment      00000030  00000000  00000000  0000040a  2**0
+  3 .comment      00000030  00000000  00000000  00000412  2**0
                   CONTENTS, READONLY
 
 Disassembly of section .text:
@@ -54,7 +54,7 @@ Disassembly of section .text:
   74:	11 e0       	ldi	r17, 0x01	; 1
   76:	a0 e0       	ldi	r26, 0x00	; 0
   78:	b1 e0       	ldi	r27, 0x01	; 1
-  7a:	e4 e7       	ldi	r30, 0x74	; 116
+  7a:	ec e7       	ldi	r30, 0x7C	; 124
   7c:	f3 e0       	ldi	r31, 0x03	; 3
   7e:	02 c0       	rjmp	.+4      	; 0x84 <__do_copy_data+0x10>
   80:	05 90       	lpm	r0, Z+
@@ -76,8 +76,8 @@ Disassembly of section .text:
   94:	ac 30       	cpi	r26, 0x0C	; 12
   96:	b2 07       	cpc	r27, r18
   98:	e1 f7       	brne	.-8      	; 0x92 <.do_clear_bss_loop>
-  9a:	0e 94 a6 01 	call	0x34c	; 0x34c <main>
-  9e:	0c 94 b8 01 	jmp	0x370	; 0x370 <_exit>
+  9a:	0e 94 aa 01 	call	0x354	; 0x354 <main>
+  9e:	0c 94 bc 01 	jmp	0x378	; 0x378 <_exit>
 
 000000a2 <__bad_interrupt>:
   a2:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
@@ -141,7 +141,7 @@ Disassembly of section .text:
  124:	30 91 05 01 	lds	r19, 0x0105
  128:	21 11       	cpse	r18, r1
  12a:	1c c0       	rjmp	.+56     	; 0x164 <encoder_scan+0x7a>
- 12c:	33 23       	and	r19, r19
+ 12c:	34 31       	cpi	r19, 0x14	; 20
  12e:	d1 f0       	breq	.+52     	; 0x164 <encoder_scan+0x7a>
  130:	31 50       	subi	r19, 0x01	; 1
  132:	30 93 05 01 	sts	0x0105, r19
@@ -161,7 +161,7 @@ Disassembly of section .text:
  152:	81 30       	cpi	r24, 0x01	; 1
  154:	39 f4       	brne	.+14     	; 0x164 <encoder_scan+0x7a>
  156:	20 91 05 01 	lds	r18, 0x0105
- 15a:	22 23       	and	r18, r18
+ 15a:	24 31       	cpi	r18, 0x14	; 20
  15c:	19 f0       	breq	.+6      	; 0x164 <encoder_scan+0x7a>
  15e:	21 50       	subi	r18, 0x01	; 1
  160:	20 93 05 01 	sts	0x0105, r18
@@ -354,39 +354,42 @@ Disassembly of section .text:
  31e:	84 31       	cpi	r24, 0x14	; 20
  320:	29 f0       	breq	.+10     	; 0x32c <process_packet+0x12>
  322:	8e 31       	cpi	r24, 0x1E	; 30
- 324:	61 f0       	breq	.+24     	; 0x33e <process_packet+0x24>
+ 324:	81 f0       	breq	.+32     	; 0x346 <process_packet+0x2c>
  326:	8a 30       	cpi	r24, 0x0A	; 10
- 328:	81 f4       	brne	.+32     	; 0x34a <process_packet+0x30>
- 32a:	0d c0       	rjmp	.+26     	; 0x346 <process_packet+0x2c>
- 32c:	80 91 09 01 	lds	r24, 0x0109
- 330:	80 93 05 01 	sts	0x0105, r24
- 334:	80 91 0a 01 	lds	r24, 0x010A
- 338:	80 93 06 01 	sts	0x0106, r24
- 33c:	04 c0       	rjmp	.+8      	; 0x346 <process_packet+0x2c>
- 33e:	80 91 09 01 	lds	r24, 0x0109
- 342:	80 93 01 01 	sts	0x0101, r24
- 346:	0c 94 7d 01 	jmp	0x2fa	; 0x2fa <send_registers>
- 34a:	08 95       	ret
+ 328:	a1 f4       	brne	.+40     	; 0x352 <process_packet+0x38>
+ 32a:	11 c0       	rjmp	.+34     	; 0x34e <process_packet+0x34>
+ 32c:	90 91 09 01 	lds	r25, 0x0109
+ 330:	90 93 05 01 	sts	0x0105, r25
+ 334:	20 91 0a 01 	lds	r18, 0x010A
+ 338:	20 93 06 01 	sts	0x0106, r18
+ 33c:	94 31       	cpi	r25, 0x14	; 20
+ 33e:	38 f4       	brcc	.+14     	; 0x34e <process_packet+0x34>
+ 340:	80 93 05 01 	sts	0x0105, r24
+ 344:	04 c0       	rjmp	.+8      	; 0x34e <process_packet+0x34>
+ 346:	80 91 09 01 	lds	r24, 0x0109
+ 34a:	80 93 01 01 	sts	0x0101, r24
+ 34e:	0c 94 7d 01 	jmp	0x2fa	; 0x2fa <send_registers>
+ 352:	08 95       	ret
 
-0000034c <main>:
- 34c:	0e 94 53 00 	call	0xa6	; 0xa6 <setup>
- 350:	0e 94 0a 01 	call	0x214	; 0x214 <receive_packet>
- 354:	92 e0       	ldi	r25, 0x02	; 2
- 356:	9a 95       	dec	r25
- 358:	f1 f7       	brne	.-4      	; 0x356 <main+0xa>
- 35a:	00 c0       	rjmp	.+0      	; 0x35c <main+0x10>
- 35c:	81 11       	cpse	r24, r1
- 35e:	0e 94 8d 01 	call	0x31a	; 0x31a <process_packet>
- 362:	8f ec       	ldi	r24, 0xCF	; 207
- 364:	97 e0       	ldi	r25, 0x07	; 7
- 366:	01 97       	sbiw	r24, 0x01	; 1
- 368:	f1 f7       	brne	.-4      	; 0x366 <main+0x1a>
- 36a:	00 c0       	rjmp	.+0      	; 0x36c <main+0x20>
- 36c:	00 00       	nop
- 36e:	f0 cf       	rjmp	.-32     	; 0x350 <main+0x4>
+00000354 <main>:
+ 354:	0e 94 53 00 	call	0xa6	; 0xa6 <setup>
+ 358:	0e 94 0a 01 	call	0x214	; 0x214 <receive_packet>
+ 35c:	92 e0       	ldi	r25, 0x02	; 2
+ 35e:	9a 95       	dec	r25
+ 360:	f1 f7       	brne	.-4      	; 0x35e <main+0xa>
+ 362:	00 c0       	rjmp	.+0      	; 0x364 <main+0x10>
+ 364:	81 11       	cpse	r24, r1
+ 366:	0e 94 8d 01 	call	0x31a	; 0x31a <process_packet>
+ 36a:	8f ec       	ldi	r24, 0xCF	; 207
+ 36c:	97 e0       	ldi	r25, 0x07	; 7
+ 36e:	01 97       	sbiw	r24, 0x01	; 1
+ 370:	f1 f7       	brne	.-4      	; 0x36e <main+0x1a>
+ 372:	00 c0       	rjmp	.+0      	; 0x374 <main+0x20>
+ 374:	00 00       	nop
+ 376:	f0 cf       	rjmp	.-32     	; 0x358 <main+0x4>
 
-00000370 <_exit>:
- 370:	f8 94       	cli
+00000378 <_exit>:
+ 378:	f8 94       	cli
 
-00000372 <__stop_program>:
- 372:	ff cf       	rjmp	.-2      	; 0x372 <__stop_program>
+0000037a <__stop_program>:
+ 37a:	ff cf       	rjmp	.-2      	; 0x37a <__stop_program>

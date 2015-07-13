@@ -134,7 +134,7 @@ void encoder_scan(void){
 
 	}
 
-	// опрос кнопки, отрабатывается отпускание (1-0)
+	// опрос кнопки, отрабатывается нажатие (1-0)
 	unsigned char new_button_state = PINC & 0b00000001;
 	if ((button_state == 1) && (new_button_state == 0)) data[1] = !data[1];
 

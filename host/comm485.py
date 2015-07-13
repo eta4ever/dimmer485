@@ -63,7 +63,7 @@ class Conn485:
         received_packet = list(self.conn.read(5))
 
         # DEBUG
-        # print (received_packet)
+        print (received_packet)
 
         # проверка длины пакета
         if len(received_packet) != 5:

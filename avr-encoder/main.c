@@ -40,6 +40,8 @@ unsigned char button_state = 0;
 void setup(void){
 	// режим портов
 	DDRD = 0b00000100; // PD2 = 1 - запись MAX485
+	DDRC = 0b00000000; // PC0 вход кнопки, PC1-2 - энкодера
+	PORTC = 0b11111111; // подключение подт€гивающих резисторов
 
 	// настройка последовательного интерфейса
 
@@ -85,9 +87,9 @@ void encoder_enable(unsigned char val){
 // опрос энкодера
 void encoder_scan(void){
 
-	// текущее состо€ние - биты 0 и 1 порта C
+	// текущее состо€ние - биты 1 и 2 порта C
 	// оно может быть 0 (00), 1 (01), 2(10), 3 (11)
-	unsigned char new_encoder_state = PINC & 0b00000011;
+	unsigned char new_encoder_state = (PINC & 0b00000110) >> 1;
 
 	// последовательность увеличени€: 00-10-11-01-...
 	// уменьшени€ 00-01-11-10-...
@@ -133,7 +135,7 @@ void encoder_scan(void){
 	}
 
 	// опрос кнопки, отрабатываетс€ отпускание (1-0)
-	unsigned char new_button_state = PINC & 0b00000100;
+	unsigned char new_button_state = PINC & 0b00000001;
 	if ((button_state == 1) && (new_button_state == 0)) data[1] = !data[1];
 
 	encoder_state = new_encoder_state; //фиксаци€ состо€ни€ энкодера

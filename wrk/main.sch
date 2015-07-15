@@ -12880,6 +12880,8 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <part name="P+8" library="supply1" deviceset="V+" device=""/>
 <part name="GND7" library="supply1" deviceset="GND" device=""/>
 <part name="COMM" library="con-molex" deviceset="5566-10" device=""/>
+<part name="TERM" library="con-molex" deviceset="5566-10" device=""/>
+<part name="R3" library="resistor" deviceset="R-EU_" device="M1206" value="120"/>
 </parts>
 <sheets>
 <sheet>
@@ -12972,6 +12974,11 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <instance part="COMM" gate="-10" x="-17.78" y="-2.54" smashed="yes" rot="R180">
 <attribute name="NAME" x="-20.32" y="-1.778" size="1.524" layer="95" rot="R180"/>
 </instance>
+<instance part="TERM" gate="-1" x="91.44" y="-2.54" smashed="yes">
+<attribute name="NAME" x="93.98" y="-3.302" size="1.524" layer="95"/>
+</instance>
+<instance part="TERM" gate="-2" x="91.44" y="0"/>
+<instance part="R3" gate="G$1" x="81.28" y="0"/>
 </instances>
 <busses>
 </busses>
@@ -13264,9 +13271,13 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <wire x1="-15.24" y1="-2.54" x2="22.86" y2="-2.54" width="0.1524" layer="91"/>
 <wire x1="22.86" y1="-2.54" x2="22.86" y2="-15.24" width="0.1524" layer="91"/>
 <wire x1="22.86" y1="-15.24" x2="71.12" y2="-15.24" width="0.1524" layer="91"/>
-<wire x1="71.12" y1="-15.24" x2="71.12" y2="7.62" width="0.1524" layer="91"/>
+<wire x1="71.12" y1="-15.24" x2="71.12" y2="0" width="0.1524" layer="91"/>
 <pinref part="U1" gate="A" pin="B"/>
+<wire x1="71.12" y1="0" x2="71.12" y2="7.62" width="0.1524" layer="91"/>
 <wire x1="71.12" y1="7.62" x2="68.58" y2="7.62" width="0.1524" layer="91"/>
+<pinref part="R3" gate="G$1" pin="1"/>
+<wire x1="76.2" y1="0" x2="71.12" y2="0" width="0.1524" layer="91"/>
+<junction x="71.12" y="0"/>
 </segment>
 </net>
 <net name="N$8" class="0">
@@ -13275,9 +13286,20 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <wire x1="-15.24" y1="-5.08" x2="20.32" y2="-5.08" width="0.1524" layer="91"/>
 <wire x1="20.32" y1="-5.08" x2="20.32" y2="-17.78" width="0.1524" layer="91"/>
 <wire x1="20.32" y1="-17.78" x2="73.66" y2="-17.78" width="0.1524" layer="91"/>
-<wire x1="73.66" y1="-17.78" x2="73.66" y2="10.16" width="0.1524" layer="91"/>
+<wire x1="73.66" y1="-17.78" x2="73.66" y2="-2.54" width="0.1524" layer="91"/>
 <pinref part="U1" gate="A" pin="A"/>
+<wire x1="73.66" y1="-2.54" x2="73.66" y2="10.16" width="0.1524" layer="91"/>
 <wire x1="73.66" y1="10.16" x2="68.58" y2="10.16" width="0.1524" layer="91"/>
+<pinref part="TERM" gate="-1" pin="S"/>
+<wire x1="73.66" y1="-2.54" x2="88.9" y2="-2.54" width="0.1524" layer="91"/>
+<junction x="73.66" y="-2.54"/>
+</segment>
+</net>
+<net name="N$9" class="0">
+<segment>
+<pinref part="R3" gate="G$1" pin="2"/>
+<pinref part="TERM" gate="-2" pin="S"/>
+<wire x1="86.36" y1="0" x2="88.9" y2="0" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>

@@ -12,10 +12,10 @@ difference(){
         translate([18.1, -15.88, 5]) cylinder(r=3, h=2, center=true);
         translate([-18.1, -15.88, 5]) cylinder(r=3, h=2, center=true);
         
-        translate([18.1, 15.88, 2]) cube([7,7,4], center=true);
-        translate([18.1, -15.88, 2]) cube([7,7,4], center=true);
-        translate([-18.1, 15.88, 2]) cube([7,7,4], center=true);
-        translate([-18.1, -15.88, 2]) cube([7,7,4], center=true);
+        translate([18.1, 15.88, 2]) cube([9,7,4], center=true);
+        translate([18.1, -15.88, 2]) cube([9,7,4], center=true);
+        translate([-18.1, 15.88, 2]) cube([9,7,4], center=true);
+        translate([-18.1, -15.88, 2]) cube([9,7,4], center=true);
         
         
         translate([0, 0, -1]) cylinder(r=30, h=2, center=true);

@@ -46,9 +46,13 @@ difference(){
         translate([11, -21 , -1]) cylinder(r=1.7, h=2.01, center=true);
         translate([-11, -21 , -1]) cylinder(r=1.7, h=2.01, center=true);
         
+        // прорези между крепежными отверстиями
+        translate([0, 23.6, -1]) cube([10, 3, 2.01], center=true);
+        translate([0, -23.6, -1]) cube([10, 3, 2.01], center=true);
+        
         // центральное отверстие
         translate([0, 0, -1]) cylinder(r=17, h=2.01, center=true);
-        
+      
         
     }
     

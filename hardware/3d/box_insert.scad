@@ -4,7 +4,14 @@ difference(){
 
     union()
     {
-        //cube([46, 41, 2], center=true);
+        // платформа
+        
+        hull(){
+            translate([-10, 8, -1]) cylinder(r=17, h=2, center=true);
+            translate([10, 8, -1]) cylinder(r=17, h=2, center=true);
+            translate([10, -8, -1]) cylinder(r=17, h=2, center=true);
+            translate([-10, -8, -1]) cylinder(r=17, h=2, center=true);
+        }
         
         // упоры
         translate([18.1, 15.88, 5]) cylinder(r=3, h=2, center=true);
@@ -17,8 +24,6 @@ difference(){
         translate([-18.1, 15.88, 2]) cube([9,7,4], center=true);
         translate([-18.1, -15.88, 2]) cube([9,7,4], center=true);
         
-        
-        translate([0, 0, -1]) cylinder(r=30, h=2, center=true);
     }
     
     union()
@@ -36,10 +41,10 @@ difference(){
         translate([-18.1, -15.88, 1.36]) cube([5.6, 7.01, 2.7], center=true);
         
         // крепежные отверстия
-        translate([0, 25, -1]) cylinder(r=1.7, h=2.01, center=true);
-        translate([25, 0, -1]) cylinder(r=1.7, h=2.01, center=true);
-        translate([0, -25, -1]) cylinder(r=1.7, h=2.01, center=true);
-        translate([-25, 0, -1]) cylinder(r=1.7, h=2.01, center=true);
+        translate([-11, 21 , -1]) cylinder(r=1.7, h=2.01, center=true);
+        translate([11, 21 , -1]) cylinder(r=1.7, h=2.01, center=true);
+        translate([11, -21 , -1]) cylinder(r=1.7, h=2.01, center=true);
+        translate([-11, -21 , -1]) cylinder(r=1.7, h=2.01, center=true);
         
         // центральное отверстие
         translate([0, 0, -1]) cylinder(r=17, h=2.01, center=true);
@@ -48,3 +53,29 @@ difference(){
     }
     
 }
+
+//втулки высокие
+
+    difference()
+        {
+            translate([5,5,9]) cylinder(r=3, h=22, center=true);
+            translate([5,5,9]) cylinder(r=1.7, h=22.01, center=true);
+        } 
+      
+    difference()
+        {
+            translate([5,-5,9]) cylinder(r=3, h=22, center=true);
+            translate([5,-5,9]) cylinder(r=1.7, h=22.01, center=true);
+        }     
+        
+    difference()
+        {
+            translate([-5,5,9]) cylinder(r=3, h=22, center=true);
+            translate([-5,5,9]) cylinder(r=1.7, h=22.01, center=true);
+        }   
+        
+    difference()
+        {
+            translate([-5,-5,9]) cylinder(r=3, h=22, center=true);
+            translate([-5,-5,9]) cylinder(r=1.7, h=22.01, center=true);
+        }   

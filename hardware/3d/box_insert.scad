@@ -24,6 +24,11 @@ difference(){
         translate([-18.1, 15.88, 2]) cube([9,7,4], center=true);
         translate([-18.1, -15.88, 2]) cube([9,7,4], center=true);
         
+        translate([18.1, 15, 0.5]) cube([12,5,1], center=true);
+        translate([18.1, -15, 0.5]) cube([12,5,1], center=true);
+        translate([-18.1, 15, 0.5]) cube([12,5,1], center=true);
+        translate([-18.1, -15, 0.5]) cube([12,5,1], center=true);
+        
     }
     
     union()
@@ -59,27 +64,27 @@ difference(){
 }
 
 //втулки высокие
-
-    difference()
-        {
-            translate([5,5,9]) cylinder(r=3, h=22, center=true);
-            translate([5,5,9]) cylinder(r=1.7, h=22.01, center=true);
-        } 
-      
-    difference()
-        {
-            translate([5,-5,9]) cylinder(r=3, h=22, center=true);
-            translate([5,-5,9]) cylinder(r=1.7, h=22.01, center=true);
-        }     
-        
-    difference()
-        {
-            translate([-5,5,9]) cylinder(r=3, h=22, center=true);
-            translate([-5,5,9]) cylinder(r=1.7, h=22.01, center=true);
-        }   
-        
-    difference()
-        {
-            translate([-5,-5,9]) cylinder(r=3, h=22, center=true);
-            translate([-5,-5,9]) cylinder(r=1.7, h=22.01, center=true);
-        }   
+//
+//    difference()
+//        {
+//            translate([5,5,9]) cylinder(r=3, h=22, center=true);
+//            translate([5,5,9]) cylinder(r=1.7, h=22.01, center=true);
+//        } 
+//      
+//    difference()
+//        {
+//            translate([5,-5,9]) cylinder(r=3, h=22, center=true);
+//            translate([5,-5,9]) cylinder(r=1.7, h=22.01, center=true);
+//        }     
+//        
+//    difference()
+//        {
+//            translate([-5,5,9]) cylinder(r=3, h=22, center=true);
+//            translate([-5,5,9]) cylinder(r=1.7, h=22.01, center=true);
+//        }   
+//        
+//    difference()
+//        {
+//            translate([-5,-5,9]) cylinder(r=3, h=22, center=true);
+//            translate([-5,-5,9]) cylinder(r=1.7, h=22.01, center=true);
+//        }   
